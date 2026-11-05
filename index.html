@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 North Pole Wishlist | Holiday Gift Tracker</title>
+  <title>Rhegine & Cy Christmas Wishlist 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
       --ginger: #b5651d;
       --ginger-dark: #8b4513;
       --icing: #fff8f0;
-      --card-bg: rgba(16, 37, 54, 0.82);
+      --card-bg: rgba(16, 37, 54, 0.84);
       --border-glow: rgba(252, 191, 73, 0.35);
     }
 
@@ -60,8 +60,9 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
       padding: 0.9rem 2rem;
-      background: rgba(11, 29, 42, 0.88);
+      background: rgba(11, 29, 42, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--border-glow);
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
@@ -70,19 +71,19 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       font-family: 'Mountains of Christmas', cursive;
-      font-size: 1.9rem;
+      font-size: 1.85rem;
       color: var(--gold);
       text-decoration: none;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       text-shadow: 0 2px 10px rgba(252, 191, 73, 0.5);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
@@ -90,7 +91,7 @@
       color: var(--icing);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       padding: 0.45rem 0.85rem;
       border-radius: 999px;
       transition: all 0.25s ease;
@@ -105,6 +106,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .btn-pill {
@@ -139,7 +141,7 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 3.5rem 1.5rem 2rem;
+      padding: 3rem 1.5rem 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -161,17 +163,17 @@
 
     .hero h1 {
       font-family: 'Mountains of Christmas', cursive;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-size: clamp(2.6rem, 5.8vw, 4.3rem);
       color: #ffffff;
       text-shadow: 0 4px 20px rgba(252, 191, 73, 0.45);
       margin-bottom: 0.75rem;
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 0 auto 2rem;
+      max-width: 670px;
+      margin: 0 auto 1.75rem;
       color: #cfe1f2;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       line-height: 1.6;
     }
 
@@ -251,7 +253,7 @@
       padding: 0 1.5rem;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2.25rem;
     }
 
     /* Gingerbread / Frost Card Styling */
@@ -288,7 +290,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
 
     .section-title {
@@ -300,7 +302,74 @@
       gap: 0.6rem;
     }
 
+    /* User Profiles & Add User Bar */
+    .users-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .user-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(252, 191, 73, 0.3);
+      color: var(--icing);
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .user-chip:hover {
+      background: rgba(252, 191, 73, 0.18);
+      transform: translateY(-2px);
+    }
+
+    .user-chip.active {
+      background: linear-gradient(135deg, var(--crimson), #b81d1d);
+      border-color: var(--gold);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(214, 40, 40, 0.5);
+    }
+
+    .user-chip-count {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: var(--gold);
+    }
+
+    .add-user-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.85rem 1rem;
+      border-radius: 16px;
+      border: 1px dashed rgba(252, 191, 73, 0.4);
+    }
+
     /* Multi-Item Dynamic Form */
+    .active-owner-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(27, 67, 50, 0.55);
+      border: 1px solid rgba(64, 145, 108, 0.5);
+      padding: 0.85rem 1.15rem;
+      border-radius: 14px;
+      margin-bottom: 1.15rem;
+    }
+
     .item-rows-container {
       display: flex;
       flex-direction: column;
@@ -310,7 +379,7 @@
 
     .item-entry-row {
       display: grid;
-      grid-template-columns: 1.3fr 1.6fr 0.9fr 1.1fr auto;
+      grid-template-columns: 1fr 1.3fr 1.5fr 0.9fr 1fr auto;
       gap: 0.75rem;
       align-items: center;
       background: rgba(255, 255, 255, 0.05);
@@ -325,7 +394,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 960px) {
       .item-entry-row {
         grid-template-columns: 1fr;
       }
@@ -427,7 +496,7 @@
     }
 
     .wish-item-card {
-      background: linear-gradient(160deg, rgba(27, 67, 50, 0.52), rgba(14, 34, 49, 0.9));
+      background: linear-gradient(160deg, rgba(27, 67, 50, 0.52), rgba(14, 34, 49, 0.92));
       border: 1px solid rgba(252, 191, 73, 0.3);
       border-radius: 18px;
       padding: 1.35rem;
@@ -445,23 +514,43 @@
       box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
     }
 
+    .wish-card-badges {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .wish-user-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(214, 40, 40, 0.28);
+      color: #ffd166;
+      border: 1px solid rgba(252, 191, 73, 0.45);
+    }
+
     .wish-priority {
       display: inline-block;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       padding: 0.25rem 0.7rem;
       border-radius: 999px;
-      background: rgba(252, 191, 73, 0.18);
+      background: rgba(252, 191, 73, 0.16);
       color: var(--gold);
-      border: 1px solid rgba(252, 191, 73, 0.35);
-      width: fit-content;
+      border: 1px solid rgba(252, 191, 73, 0.32);
     }
 
     .wish-title {
       font-size: 1.22rem;
       font-weight: 700;
       color: #ffffff;
-      margin-top: 0.4rem;
+      margin-top: 0.55rem;
       word-break: break-word;
     }
 
@@ -577,15 +666,16 @@
 
   <!-- Sticky Navigation Bar -->
   <header class="navbar">
-    <a href="#top" class="brand">🎄 Wishlist 2026</a>
+    <a href="#top" class="brand">🎄 Rhegine &amp; Cy Wishlist 2026</a>
     <nav class="nav-links">
       <a href="#top">Village Home</a>
+      <a href="#users-section">Wishmakers</a>
       <a href="#add-section">Add Wishes</a>
-      <a href="#wishlist-section">My 2026 List (<span id="nav-count">0</span>)</a>
+      <a href="#wishlist-section">All Wishes (<span id="nav-count">0</span>)</a>
     </nav>
     <div class="nav-actions">
-      <button id="audio-btn" class="btn-pill" onclick="toggleChristmasMusic()">
-        🔔 Play Holiday Music
+      <button id="audio-btn" class="btn-pill playing" onclick="toggleChristmasMusic()">
+        🎶 Pause Holiday Music
       </button>
       <button class="btn-pill" onclick="openSyncModal()">
         📊 Google Sheet Sync
@@ -598,9 +688,9 @@
     <div class="countdown-badge" id="countdown-timer">
       🎅 Loading 2026 Christmas Countdown...
     </div>
-    <h1>North Pole Christmas Wishlist 2026</h1>
+    <h1>Rhegine &amp; Cy Christmas Wishlist 2026</h1>
     <p>
-      Queue up multiple gifts with direct online shopping links, enjoy cozy music-box carols, and automatically sync every wish to your Google Sheet.
+      Welcome to our cozy Christmas village! Switch between <strong>Rhegine</strong>, <strong>Cy</strong>, or add your own profile to build your 2026 holiday wishlist synced live with Google Sheets.
     </p>
 
     <!-- SVG Animated Winter Village: Pine Trees & Gingerbread House -->
@@ -664,11 +754,48 @@
   <!-- Main Application Container -->
   <main class="container">
 
-    <!-- Multi-Item Wishlist Builder Section -->
+    <!-- 1. User Profiles & Add User Section -->
+    <section id="users-section" class="festive-card">
+      <div class="section-header">
+        <h2 class="section-title">🎅 Select or Add a Wishmaker</h2>
+        <span style="font-size: 0.9rem; color: #cfe1f2;">Click a profile to view or add to their wishlist</span>
+      </div>
+
+      <!-- Dynamic User Chips -->
+      <div id="users-bar" class="users-bar"></div>
+
+      <!-- Add New User Form -->
+      <form class="add-user-form" onsubmit="handleAddUser(event)">
+        <span style="font-weight: 600; color: var(--gold);">➕ New User:</span>
+        <input
+          type="text"
+          id="new-user-input"
+          class="input-field"
+          placeholder="Enter name (e.g., Mom, Dad, Alex)..."
+          style="max-width: 280px;"
+          required
+        />
+        <button type="submit" class="btn-pill" style="background: var(--pine-mid);">
+          ✨ Add User &amp; Start Wishlist
+        </button>
+      </form>
+    </section>
+
+    <!-- 2. Multi-Item Wishlist Builder Section -->
     <section id="add-section" class="festive-card">
       <div class="section-header">
-        <h2 class="section-title">🎁 Add Items to Your 2026 Wishlist</h2>
+        <h2 class="section-title">🎁 Add Items to Wishlist</h2>
         <span id="sync-indicator" class="sync-status">🟢 Connected to Google Sheet</span>
+      </div>
+
+      <div class="active-owner-banner">
+        <span style="font-weight: 600; color: var(--gold);">👤 Adding wishes for:</span>
+        <select id="default-user-select" class="select-field" style="max-width: 240px;" onchange="syncRowUsersToDefault(this.value)">
+          <!-- Populated dynamically -->
+        </select>
+        <span style="font-size: 0.86rem; color: #cfe1f2;">
+          (You can also assign individual rows to different users below)
+        </span>
       </div>
 
       <form id="wishlist-form" onsubmit="handleBatchSubmit(event)">
@@ -687,16 +814,16 @@
       </form>
     </section>
 
-    <!-- Saved Wishlist Display Section -->
+    <!-- 3. Saved Wishlist Display Section -->
     <section id="wishlist-section" class="festive-card">
       <div class="section-header">
-        <h2 class="section-title">🦌 My 2026 Christmas Wishes</h2>
+        <h2 class="section-title" id="wishlist-heading">🦌 Rhegine &amp; Cy's 2026 Wishes</h2>
         <div class="filter-bar">
           <input
             type="search"
             id="search-input"
             class="input-field"
-            placeholder="🔍 Search wishes..."
+            placeholder="🔍 Search gifts or notes..."
             style="width: 210px;"
             oninput="renderWishlist()"
           />
@@ -723,7 +850,7 @@
         📊 Connected Google Sheet
       </h3>
       <p style="color: #cfe1f2; font-size: 0.92rem; line-height: 1.5; margin-bottom: 1.2rem;">
-        Your <strong>Google Apps Script Web App URL</strong> is pre-configured below. Every item added or removed syncs directly with your Google Sheet.
+        Your <strong>Google Apps Script Web App URL</strong> is pre-configured below. Every user and wishlist item syncs automatically with your Google Sheet.
       </p>
       <input
         type="url"
@@ -735,7 +862,7 @@
       <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
         <button type="button" class="btn-pill" onclick="closeSyncModal()">Cancel</button>
         <button type="button" class="btn-submit" style="padding: 0.6rem 1.3rem;" onclick="saveScriptUrl()">
-          Save & Sync Now
+          Save &amp; Sync Now
         </button>
       </div>
     </div>
@@ -746,22 +873,160 @@
 
   <script>
     /**************************************************************
-     * 1. EMBEDDED GOOGLE SHEETS WEB APP URL & STATE
+     * 1. EMBEDDED GOOGLE SHEETS WEB APP URL & MULTI-USER STATE
      **************************************************************/
     const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqitGC0Ozxc5FVFqh1b91NhOGONx0yyo8ERb9C6cTstWwjd9cU4KpylCFeKLItYLRJ/exec';
     let scriptUrl = localStorage.getItem('xmas2026_script_url') || DEFAULT_SCRIPT_URL;
 
+    const DEFAULT_USERS = ['Rhegine', 'Cy'];
+    let usersList = JSON.parse(localStorage.getItem('xmas2026_users')) || [...DEFAULT_USERS];
+    // Ensure Rhegine and Cy are always present
+    DEFAULT_USERS.forEach(u => {
+      if (!usersList.some(existing => existing.toLowerCase() === u.toLowerCase())) {
+        usersList.push(u);
+      }
+    });
+
+    let selectedUserFilter = 'ALL'; // 'ALL' or specific user name
+    let activeFormUser = usersList[0] || 'Rhegine';
     let wishlistItems = JSON.parse(localStorage.getItem('xmas2026_items')) || [];
 
+    // Helper to pack/unpack user inside the Notes column so existing Code.gs works without redeploying
+    function packNotesWithUser(user, notes) {
+      const cleanUser = (user || 'Rhegine').trim();
+      const cleanNotes = (notes || '').trim();
+      return cleanNotes ? `👤 ${cleanUser} | ${cleanNotes}` : `👤 ${cleanUser}`;
+    }
+
+    function unpackUserAndNotes(item) {
+      let user = item.user || '';
+      let rawNotes = String(item.notes || '');
+
+      const match = rawNotes.match(/^👤\s*([^|]+?)(?:\s*\|\s*(.*))?$/);
+      if (match) {
+        user = match[1].trim();
+        rawNotes = (match[2] || '').trim();
+      }
+
+      if (!user) user = 'Rhegine';
+
+      // Auto-register any user discovered from Google Sheet rows
+      if (!usersList.some(u => u.toLowerCase() === user.toLowerCase())) {
+        usersList.push(user);
+        localStorage.setItem('xmas2026_users', JSON.stringify(usersList));
+      }
+
+      return {
+        ...item,
+        user,
+        cleanNotes: rawNotes
+      };
+    }
+
     /**************************************************************
-     * 2. MULTI-ITEM DYNAMIC FORM ROWS
+     * 2. USER MANAGEMENT (ADD USER & SELECT USER WISHLIST)
      **************************************************************/
-    function addItemRow(defaults = { name: '', link: '', priority: '⭐ Top Wish', notes: '' }) {
+    function renderUsersUI() {
+      const usersBar = document.getElementById('users-bar');
+      const defaultSelect = document.getElementById('default-user-select');
+
+      const normalizedItems = wishlistItems.map(unpackUserAndNotes);
+      const totalCount = normalizedItems.length;
+
+      let chipsHtml = `
+        <button type="button" class="user-chip ${selectedUserFilter === 'ALL' ? 'active' : ''}" onclick="selectUserProfile('ALL')">
+          🎄 All Wishlists <span class="user-chip-count">${totalCount}</span>
+        </button>
+      `;
+
+      usersList.forEach(user => {
+        const count = normalizedItems.filter(i => i.user.toLowerCase() === user.toLowerCase()).length;
+        const isActive = selectedUserFilter.toLowerCase() === user.toLowerCase();
+        const icon = user.toLowerCase() === 'rhegine' ? '💝' : user.toLowerCase() === 'cy' ? '🎸' : '🎁';
+        chipsHtml += `
+          <button type="button" class="user-chip ${isActive ? 'active' : ''}" onclick="selectUserProfile('${escapeAttribute(user)}')">
+            ${icon} ${escapeHtml(user)} <span class="user-chip-count">${count}</span>
+          </button>
+        `;
+      });
+
+      usersBar.innerHTML = chipsHtml;
+
+      // Populate active form owner dropdown
+      defaultSelect.innerHTML = usersList.map(user => `
+        <option value="${escapeAttribute(user)}" ${user.toLowerCase() === activeFormUser.toLowerCase() ? 'selected' : ''}>
+          ${escapeHtml(user)}'s Wishlist
+        </option>
+      `).join('');
+
+      // Update any existing form row dropdowns
+      document.querySelectorAll('.row-user').forEach(selectEl => {
+        const currentVal = selectEl.value || activeFormUser;
+        selectEl.innerHTML = usersList.map(user => `
+          <option value="${escapeAttribute(user)}" ${user.toLowerCase() === currentVal.toLowerCase() ? 'selected' : ''}>
+            👤 ${escapeHtml(user)}
+          </option>
+        `).join('');
+      });
+    }
+
+    function selectUserProfile(userOrAll) {
+      selectedUserFilter = userOrAll;
+      if (userOrAll !== 'ALL') {
+        activeFormUser = userOrAll;
+        syncRowUsersToDefault(activeFormUser);
+      }
+      renderUsersUI();
+      renderWishlist();
+    }
+
+    function syncRowUsersToDefault(newUser) {
+      activeFormUser = newUser;
+      document.querySelectorAll('.row-user').forEach(selectEl => {
+        selectEl.value = newUser;
+      });
+    }
+
+    function handleAddUser(e) {
+      e.preventDefault();
+      const input = document.getElementById('new-user-input');
+      const newName = input.value.trim();
+      if (!newName) return;
+
+      const existing = usersList.find(u => u.toLowerCase() === newName.toLowerCase());
+      if (existing) {
+        selectUserProfile(existing);
+        showToast(`🎄 Switched to ${existing}'s wishlist!`);
+      } else {
+        usersList.push(newName);
+        localStorage.setItem('xmas2026_users', JSON.stringify(usersList));
+        selectUserProfile(newName);
+        playJingleChime();
+        showToast(`🎅 Added ${newName}! You can now add items to ${newName}'s wishlist.`);
+      }
+
+      input.value = '';
+    }
+
+    /**************************************************************
+     * 3. MULTI-ITEM DYNAMIC FORM ROWS
+     **************************************************************/
+    function addItemRow(defaults = { user: activeFormUser, name: '', link: '', priority: '⭐ Top Wish', notes: '' }) {
       const container = document.getElementById('item-rows');
       const row = document.createElement('div');
       row.className = 'item-entry-row';
+
+      const userOptions = usersList.map(u => `
+        <option value="${escapeAttribute(u)}" ${u.toLowerCase() === (defaults.user || activeFormUser).toLowerCase() ? 'selected' : ''}>
+          👤 ${escapeHtml(u)}
+        </option>
+      `).join('');
+
       row.innerHTML = `
-        <input type="text" class="input-field row-name" placeholder="🎁 Item Name (e.g., Cozy Flannel Blanket)" value="${defaults.name}" required />
+        <select class="select-field row-user" title="Wishlist Owner">
+          ${userOptions}
+        </select>
+        <input type="text" class="input-field row-name" placeholder="🎁 Item Name (e.g., Espresso Maker)" value="${defaults.name}" required />
         <input type="url" class="input-field row-link" placeholder="🔗 Online Shopping Link (https://...)" value="${defaults.link}" required />
         <select class="select-field row-priority">
           <option value="⭐ Top Wish" ${defaults.priority === '⭐ Top Wish' ? 'selected' : ''}>⭐ Top Wish</option>
@@ -789,19 +1054,21 @@
       const newItems = [];
 
       rows.forEach(row => {
+        const user = row.querySelector('.row-user').value.trim() || activeFormUser;
         const name = row.querySelector('.row-name').value.trim();
         const link = row.querySelector('.row-link').value.trim();
         const priority = row.querySelector('.row-priority').value;
-        const notes = row.querySelector('.row-notes').value.trim();
+        const rawNotes = row.querySelector('.row-notes').value.trim();
 
         if (name && link) {
           newItems.push({
             id: 'wish-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
             timestamp: new Date().toISOString(),
+            user,
             name,
             link,
             priority,
-            notes
+            notes: packNotesWithUser(user, rawNotes)
           });
         }
       });
@@ -812,6 +1079,7 @@
 
       wishlistItems = [...newItems, ...wishlistItems];
       localStorage.setItem('xmas2026_items', JSON.stringify(wishlistItems));
+      renderUsersUI();
       renderWishlist();
 
       document.getElementById('item-rows').innerHTML = '';
@@ -827,7 +1095,7 @@
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({ action: 'add', items: newItems })
           });
-          showToast(`🎄 Saved ${newItems.length} item(s) to Google Sheets!`);
+          showToast(`🎄 Saved ${newItems.length} wish(es) to Google Sheets!`);
         } catch (err) {
           showToast('⚠️ Saved locally (check connection)');
         } finally {
@@ -837,30 +1105,42 @@
     }
 
     /**************************************************************
-     * 3. RENDER WISHLIST & GOOGLE SHEETS SYNC
+     * 4. RENDER WISHLIST & GOOGLE SHEETS SYNC
      **************************************************************/
     function renderWishlist() {
       const grid = document.getElementById('wishlist-grid');
+      const heading = document.getElementById('wishlist-heading');
       const search = document.getElementById('search-input').value.toLowerCase();
       const filter = document.getElementById('priority-filter').value;
 
-      document.getElementById('nav-count').textContent = wishlistItems.length;
+      const normalizedItems = wishlistItems.map(unpackUserAndNotes);
+
+      document.getElementById('nav-count').textContent = normalizedItems.length;
       document.getElementById('sync-indicator').textContent = scriptUrl
         ? '🟢 Connected to Google Sheet'
         : '💾 Local Mode';
 
-      const filtered = wishlistItems.filter(item => {
+      heading.innerHTML = selectedUserFilter === 'ALL'
+        ? `🦌 Rhegine &amp; Cy's 2026 Wishes (All Users)`
+        : `🦌 ${escapeHtml(selectedUserFilter)}'s 2026 Christmas Wishlist`;
+
+      const filtered = normalizedItems.filter(item => {
+        const matchesUser =
+          selectedUserFilter === 'ALL' ||
+          item.user.toLowerCase() === selectedUserFilter.toLowerCase();
         const matchesSearch =
           item.name.toLowerCase().includes(search) ||
-          (item.notes && item.notes.toLowerCase().includes(search));
+          item.user.toLowerCase().includes(search) ||
+          (item.cleanNotes && item.cleanNotes.toLowerCase().includes(search));
         const matchesPriority = filter === 'ALL' || item.priority === filter;
-        return matchesSearch && matchesPriority;
+        return matchesUser && matchesSearch && matchesPriority;
       });
 
       if (filtered.length === 0) {
+        const ownerLabel = selectedUserFilter === 'ALL' ? 'Rhegine & Cy' : escapeHtml(selectedUserFilter);
         grid.innerHTML = `
           <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem; color: #bfd4e6;">
-            ❄️ Your 2026 wishlist is ready! Add your first Christmas wish above.
+            ❄️ No wishes found for <strong>${ownerLabel}</strong> yet. Add a Christmas wish above!
           </div>
         `;
         return;
@@ -869,9 +1149,12 @@
       grid.innerHTML = filtered.map(item => `
         <article class="wish-item-card">
           <div>
-            <span class="wish-priority">${escapeHtml(item.priority || '⭐ Top Wish')}</span>
+            <div class="wish-card-badges">
+              <span class="wish-user-badge">👤 ${escapeHtml(item.user)}</span>
+              <span class="wish-priority">${escapeHtml(item.priority || '⭐ Top Wish')}</span>
+            </div>
             <h3 class="wish-title">${escapeHtml(item.name)}</h3>
-            ${item.notes ? `<p class="wish-notes" style="margin-top: 0.45rem;">${escapeHtml(item.notes)}</p>` : ''}
+            ${item.cleanNotes ? `<p class="wish-notes" style="margin-top: 0.45rem;">${escapeHtml(item.cleanNotes)}</p>` : ''}
           </div>
           <div class="wish-actions">
             <a href="${escapeAttribute(item.link)}" target="_blank" rel="noopener noreferrer" class="shop-link-btn">
@@ -888,6 +1171,7 @@
     async function deleteWish(id) {
       wishlistItems = wishlistItems.filter(item => String(item.id) !== String(id));
       localStorage.setItem('xmas2026_items', JSON.stringify(wishlistItems));
+      renderUsersUI();
       renderWishlist();
       showToast('🗑 Removed item from wishlist');
 
@@ -913,6 +1197,7 @@
         if (data && Array.isArray(data.items)) {
           wishlistItems = data.items.reverse();
           localStorage.setItem('xmas2026_items', JSON.stringify(wishlistItems));
+          renderUsersUI();
           renderWishlist();
           showToast('✅ Synced with Google Sheet!');
         }
@@ -939,10 +1224,11 @@
     }
 
     /**************************************************************
-     * 4. BUILT-IN WEB AUDIO API CHRISTMAS MUSIC BOX & CHIMES
+     * 5. AUTOPLAY WEB AUDIO API CHRISTMAS MUSIC BOX & CHIMES
      **************************************************************/
     let audioCtx = null;
-    let isPlayingMusic = false;
+    let isPlayingMusic = true; // Enabled automatically on load
+    let melodyLoopRunning = false;
     let melodyTimeout = null;
 
     const NOTES = {
@@ -966,7 +1252,7 @@
     ];
 
     function playCelestaNote(freq, duration) {
-      if (!audioCtx) return;
+      if (!audioCtx || audioCtx.state !== 'running') return;
       const now = audioCtx.currentTime;
       const osc = audioCtx.createOscillator();
       const harmonic = audioCtx.createOscillator();
@@ -992,7 +1278,11 @@
     }
 
     function playMelodyStep(index = 0) {
-      if (!isPlayingMusic) return;
+      if (!isPlayingMusic) {
+        melodyLoopRunning = false;
+        return;
+      }
+      melodyLoopRunning = true;
       const [noteName, duration] = CHRISTMAS_MELODY[index];
       playCelestaNote(NOTES[noteName], duration);
       melodyTimeout = setTimeout(() => {
@@ -1000,8 +1290,59 @@
       }, duration * 1000);
     }
 
-    function toggleChristmasMusic() {
+    function updateAudioButtonUI() {
       const btn = document.getElementById('audio-btn');
+      if (isPlayingMusic) {
+        btn.classList.add('playing');
+        btn.textContent = '🎶 Pause Holiday Music';
+      } else {
+        btn.classList.remove('playing');
+        btn.textContent = '🔔 Play Holiday Music';
+      }
+    }
+
+    function startAutoplayMusic() {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        isPlayingMusic = true;
+        updateAudioButtonUI();
+        if (!melodyLoopRunning) {
+          playMelodyStep(0);
+        }
+      } catch (e) {
+        console.warn('Autoplay waiting for first interaction:', e);
+      }
+    }
+
+    // Unlock audio automatically on the first pointer, touch, key, or scroll interaction if browser paused cold autoplay
+    function setupAutoplayUnlocker() {
+      const unlockEvents = ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'];
+      const unlockHandler = (e) => {
+        if (e.target && e.target.id === 'audio-btn') return;
+        if (isPlayingMusic) {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+          if (!melodyLoopRunning) {
+            playMelodyStep(0);
+          }
+        }
+        if (audioCtx && audioCtx.state === 'running') {
+          unlockEvents.forEach(evt => window.removeEventListener(evt, unlockHandler));
+        }
+      };
+      unlockEvents.forEach(evt => window.addEventListener(evt, unlockHandler, { passive: true }));
+    }
+
+    function toggleChristmasMusic() {
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
@@ -1009,13 +1350,12 @@
         audioCtx.resume();
       }
       isPlayingMusic = !isPlayingMusic;
+      updateAudioButtonUI();
       if (isPlayingMusic) {
-        btn.classList.add('playing');
-        btn.textContent = '🎶 Pause Holiday Music';
+        clearTimeout(melodyTimeout);
         playMelodyStep(0);
       } else {
-        btn.classList.remove('playing');
-        btn.textContent = '🔔 Play Holiday Music';
+        melodyLoopRunning = false;
         clearTimeout(melodyTimeout);
       }
     }
@@ -1024,13 +1364,16 @@
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
       ['C5', 'E5', 'G5'].forEach((n, idx) => {
         setTimeout(() => playCelestaNote(NOTES[n], 0.25), idx * 90);
       });
     }
 
     /**************************************************************
-     * 5. ANIMATED SNOWFALL & 2026 CHRISTMAS COUNTDOWN
+     * 6. ANIMATED SNOWFALL & 2026 CHRISTMAS COUNTDOWN
      **************************************************************/
     function initSnowfall() {
       const canvas = document.getElementById('snow-canvas');
@@ -1082,7 +1425,7 @@
       const badge = document.getElementById('countdown-timer');
 
       if (diff <= 0) {
-        badge.textContent = '🎄 Merry Christmas 2026! 🎅';
+        badge.textContent = '🎄 Merry Christmas 2026, Rhegine & Cy! 🎅';
         return;
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -1092,7 +1435,7 @@
     }
 
     /**************************************************************
-     * 6. UTILITIES & INITIALIZATION
+     * 7. UTILITIES & INITIALIZATION
      **************************************************************/
     function showToast(msg) {
       const t = document.getElementById('toast');
@@ -1112,16 +1455,22 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      // Ensure the embedded URL is active
       if (!localStorage.getItem('xmas2026_script_url')) {
         localStorage.setItem('xmas2026_script_url', DEFAULT_SCRIPT_URL);
       }
       scriptUrl = localStorage.getItem('xmas2026_script_url') || DEFAULT_SCRIPT_URL;
+
+      renderUsersUI();
       addItemRow();
       renderWishlist();
       initSnowfall();
       updateCountdown2026();
       setInterval(updateCountdown2026, 60000);
+
+      // Start Christmas Music automatically on load + register gesture fallback
+      startAutoplayMusic();
+      setupAutoplayUnlocker();
+
       fetchFromGoogleSheet();
     });
   </script>
