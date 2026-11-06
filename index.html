@@ -6,696 +6,315 @@
   <title>Rhegine & Cy Christmas Wishlist 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     :root {
       --bg-night: #0b1d2a;
-      --bg-aurora: #13334c;
       --pine-dark: #1b4332;
       --pine-mid: #2d6a4f;
       --pine-light: #40916c;
       --crimson: #d62828;
       --crimson-dark: #9e1919;
       --gold: #fcbf49;
-      --ginger: #b5651d;
-      --ginger-dark: #8b4513;
       --icing: #fff8f0;
       --card-bg: rgba(16, 37, 54, 0.84);
       --border-glow: rgba(252, 191, 73, 0.35);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: radial-gradient(circle at 50% 15%, #1d4e6f 0%, var(--bg-night) 70%);
+      background-attachment: fixed;
       color: var(--icing);
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Animated Snow Canvas */
-    #snow-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 1;
-    }
+    #snow-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1; }
 
-    /* Sticky Festive Navigation */
+    /* ---------- Navbar ---------- */
     header.navbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
+      position: sticky; top: 0; z-index: 50;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;
       padding: 0.9rem 2rem;
-      background: rgba(11, 29, 42, 0.9);
+      background: rgba(11, 29, 42, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--border-glow);
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
     }
-
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-family: 'Mountains of Christmas', cursive;
-      font-size: 1.85rem;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.8px;
-      text-shadow: 0 2px 10px rgba(252, 191, 73, 0.5);
+      display: flex; align-items: center; gap: 0.65rem;
+      font-family: 'Mountains of Christmas', cursive; font-size: 1.85rem; color: var(--gold);
+      text-decoration: none; letter-spacing: 0.8px; text-shadow: 0 2px 10px rgba(252, 191, 73, 0.5);
     }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
     .nav-links a {
-      color: var(--icing);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.92rem;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      transition: all 0.25s ease;
+      color: var(--icing); text-decoration: none; font-weight: 600; font-size: 0.92rem;
+      padding: 0.45rem 0.85rem; border-radius: 999px; transition: all 0.25s ease;
     }
-
-    .nav-links a:hover {
-      background: rgba(252, 191, 73, 0.18);
-      color: var(--gold);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
+    .nav-links a:hover { background: rgba(252, 191, 73, 0.18); color: var(--gold); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 
     .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border-glow);
-      background: rgba(27, 67, 50, 0.85);
-      color: var(--icing);
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.55rem 1.1rem; border-radius: 999px;
+      border: 1px solid var(--border-glow); background: rgba(27, 67, 50, 0.85);
+      color: var(--icing); font-family: inherit; font-weight: 600; font-size: 0.88rem; cursor: pointer;
       transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
     }
+    .btn-pill:hover { transform: translateY(-2px); background: var(--pine-mid); box-shadow: 0 4px 14px rgba(64, 145, 108, 0.45); }
+    .btn-pill.playing { background: linear-gradient(135deg, var(--crimson), #f77f00); border-color: var(--gold); box-shadow: 0 0 16px rgba(214, 40, 40, 0.65); }
+    .btn-pill.gold { background: var(--gold); color: #1a1a1a; border-color: var(--gold); }
+    .btn-pill.gold:hover { background: #ffd166; }
 
-    .btn-pill:hover {
-      transform: translateY(-2px);
-      background: var(--pine-mid);
-      box-shadow: 0 4px 14px rgba(64, 145, 108, 0.45);
-    }
+    .sync-pill { font-weight: 700; }
+    .sync-pill[data-state="ok"] { border-color: #52b788; color: #b7efc5; }
+    .sync-pill[data-state="syncing"] { border-color: var(--gold); color: var(--gold); }
+    .sync-pill[data-state="pending"] { border-color: #f77f00; color: #ffd8a8; }
+    .sync-pill[data-state="error"] { border-color: #ff6b6b; color: #ffc9c9; background: rgba(158, 25, 25, 0.5); }
 
-    .btn-pill.playing {
-      background: linear-gradient(135deg, var(--crimson), #f77f00);
-      border-color: var(--gold);
-      box-shadow: 0 0 16px rgba(214, 40, 40, 0.65);
-    }
-
-    /* Hero Section with Gingerbread Village & Swaying Pine Trees */
-    .hero {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 3rem 1.5rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    /* ---------- Hero ---------- */
+    .hero { position: relative; z-index: 2; text-align: center; padding: 3rem 1.5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     .countdown-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: rgba(214, 40, 40, 0.22);
-      border: 1px solid rgba(252, 191, 73, 0.5);
-      color: var(--gold);
-      padding: 0.45rem 1.2rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(214, 40, 40, 0.22); border: 1px solid rgba(252, 191, 73, 0.5); color: var(--gold);
+      padding: 0.45rem 1.2rem; border-radius: 999px; font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem;
       box-shadow: 0 0 20px rgba(214, 40, 40, 0.3);
     }
-
     .hero h1 {
-      font-family: 'Mountains of Christmas', cursive;
-      font-size: clamp(2.6rem, 5.8vw, 4.3rem);
-      color: #ffffff;
-      text-shadow: 0 4px 20px rgba(252, 191, 73, 0.45);
-      margin-bottom: 0.75rem;
+      font-family: 'Mountains of Christmas', cursive; font-size: clamp(2.6rem, 5.8vw, 4.3rem);
+      color: #fff; text-shadow: 0 4px 20px rgba(252, 191, 73, 0.45); margin-bottom: 0.75rem;
     }
+    .hero p { max-width: 670px; margin: 0 auto 1.75rem; color: #cfe1f2; font-size: 1.05rem; line-height: 1.6; }
 
-    .hero p {
-      max-width: 670px;
-      margin: 0 auto 1.75rem;
-      color: #cfe1f2;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    /* Animated Winter Village Scene (Pine Trees + Gingerbread House) */
     .village-scene {
-      position: relative;
-      max-width: 820px;
-      height: 230px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      border-bottom: 12px solid #eef6fb;
-      border-radius: 0 0 30px 30px;
-      overflow: visible;
+      position: relative; max-width: 820px; height: 230px; margin: 0 auto;
+      display: flex; justify-content: center; align-items: flex-end;
+      border-bottom: 12px solid #eef6fb; border-radius: 0 0 30px 30px; overflow: visible;
     }
-
-    .pine-tree {
-      transform-origin: bottom center;
-      animation: treeSway 4.5s ease-in-out infinite alternate;
-      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
-    }
-
-    .pine-tree.delay-1 {
-      animation-duration: 5.2s;
-      animation-delay: -1.5s;
-    }
-
-    @keyframes treeSway {
-      0% { transform: rotate(-2.2deg); }
-      100% { transform: rotate(2.2deg); }
-    }
-
-    .twinkle-light {
-      animation: twinkle 1.6s infinite alternate;
-    }
-
-    .twinkle-light.alt {
-      animation-delay: 0.8s;
-    }
-
-    @keyframes twinkle {
-      0% { opacity: 0.35; r: 3.5px; }
-      100% { opacity: 1; r: 5px; filter: drop-shadow(0 0 6px #fcbf49); }
-    }
-
-    .gingerbread-house {
-      margin: 0 -10px;
-      z-index: 3;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.55));
-      transition: transform 0.3s ease;
-    }
-
-    .gingerbread-house:hover {
-      transform: scale(1.04);
-    }
-
-    .smoke {
-      animation: smokeRise 3.2s ease-out infinite;
-      transform-origin: center;
-    }
-
+    .pine-tree { transform-origin: bottom center; animation: treeSway 4.5s ease-in-out infinite alternate; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45)); }
+    .pine-tree.delay-1 { animation-duration: 5.2s; animation-delay: -1.5s; }
+    @keyframes treeSway { 0% { transform: rotate(-2.2deg); } 100% { transform: rotate(2.2deg); } }
+    .twinkle-light { animation: twinkle 1.6s infinite alternate; }
+    .twinkle-light.alt { animation-delay: 0.8s; }
+    @keyframes twinkle { 0% { opacity: 0.35; } 100% { opacity: 1; filter: drop-shadow(0 0 6px #fcbf49); } }
+    .gingerbread-house { margin: 0 -10px; z-index: 3; filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.55)); transition: transform 0.3s ease; }
+    .gingerbread-house:hover { transform: scale(1.04); }
+    .smoke { animation: smokeRise 3.2s ease-out infinite; transform-origin: center; }
     .smoke.s2 { animation-delay: 1.1s; }
     .smoke.s3 { animation-delay: 2.2s; }
+    @keyframes smokeRise { 0% { transform: translateY(0) scale(0.6); opacity: 0.75; } 100% { transform: translateY(-42px) translateX(12px) scale(1.5); opacity: 0; } }
 
-    @keyframes smokeRise {
-      0% { transform: translateY(0) scale(0.6); opacity: 0.75; }
-      100% { transform: translateY(-42px) translateX(12px) scale(1.5); opacity: 0; }
-    }
-
-    /* Main Content Layout */
-    main.container {
-      position: relative;
-      z-index: 2;
-      max-width: 1120px;
-      margin: 2rem auto 5rem;
-      padding: 0 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.25rem;
-    }
-
-    /* Gingerbread / Frost Card Styling */
+    /* ---------- Layout / Cards ---------- */
+    main.container { position: relative; z-index: 2; max-width: 1120px; margin: 2rem auto 5rem; padding: 0 1.5rem; display: grid; grid-template-columns: 1fr; gap: 2.25rem; }
     .festive-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      border: 2px solid var(--border-glow);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-      position: relative;
-      overflow: hidden;
+      background: var(--card-bg); backdrop-filter: blur(16px); border: 2px solid var(--border-glow);
+      border-radius: 24px; padding: 2rem; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45); position: relative; overflow: hidden;
     }
-
     .festive-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-      background: repeating-linear-gradient(
-        45deg,
-        var(--crimson),
-        var(--crimson) 14px,
-        #ffffff 14px,
-        #ffffff 28px
-      );
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 8px;
+      background: repeating-linear-gradient(45deg, var(--crimson), var(--crimson) 14px, #fff 14px, #fff 28px);
     }
+    .section-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+    .section-title { font-family: 'Mountains of Christmas', cursive; font-size: 2.1rem; color: var(--gold); display: flex; align-items: center; gap: 0.6rem; }
 
-    .section-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .section-title {
-      font-family: 'Mountains of Christmas', cursive;
-      font-size: 2.1rem;
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    /* User Profiles & Add User Bar */
-    .users-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin-bottom: 1.25rem;
-    }
-
-    .user-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.15rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(252, 191, 73, 0.3);
-      color: var(--icing);
-      font-weight: 600;
-      font-size: 0.92rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .user-chip:hover {
-      background: rgba(252, 191, 73, 0.18);
-      transform: translateY(-2px);
-    }
-
-    .user-chip.active {
-      background: linear-gradient(135deg, var(--crimson), #b81d1d);
-      border-color: var(--gold);
-      color: #ffffff;
-      box-shadow: 0 4px 15px rgba(214, 40, 40, 0.5);
-    }
-
-    .user-chip-count {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: var(--gold);
-    }
-
-    .add-user-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.85rem 1rem;
-      border-radius: 16px;
-      border: 1px dashed rgba(252, 191, 73, 0.4);
-    }
-
-    /* Multi-Item Dynamic Form */
-    .active-owner-banner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(27, 67, 50, 0.55);
-      border: 1px solid rgba(64, 145, 108, 0.5);
-      padding: 0.85rem 1.15rem;
-      border-radius: 14px;
-      margin-bottom: 1.15rem;
-    }
-
-    .item-rows-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-    }
-
+    /* ---------- Form ---------- */
+    .item-rows-container { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.25rem; }
     .item-entry-row {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr 1.5fr 0.9fr 1fr auto;
-      gap: 0.75rem;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: grid; grid-template-columns: 0.9fr 1.3fr 1.5fr 0.9fr 1fr auto; gap: 0.75rem; align-items: center;
+      background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12);
       animation: slideIn 0.25s ease-out;
     }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 960px) {
-      .item-entry-row {
-        grid-template-columns: 1fr;
-      }
-    }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 960px) { .item-entry-row { grid-template-columns: 1fr; } }
 
     .input-field, .select-field {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(9, 23, 34, 0.85);
-      color: #ffffff;
-      font-family: inherit;
-      font-size: 0.94rem;
+      width: 100%; padding: 0.75rem 1rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(9, 23, 34, 0.85); color: #fff; font-family: inherit; font-size: 0.94rem;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-
-    .input-field:focus, .select-field:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(252, 191, 73, 0.22);
-    }
-
+    .input-field:focus, .select-field:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(252, 191, 73, 0.22); }
     .btn-remove-row {
-      background: rgba(214, 40, 40, 0.2);
-      color: #ff8787;
-      border: 1px solid rgba(214, 40, 40, 0.4);
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
+      background: rgba(214, 40, 40, 0.2); color: #ff8787; border: 1px solid rgba(214, 40, 40, 0.4);
+      width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center; transition: all 0.2s;
     }
-
-    .btn-remove-row:hover {
-      background: var(--crimson);
-      color: #fff;
-    }
-
-    .form-footer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
+    .btn-remove-row:hover { background: var(--crimson); color: #fff; }
+    .form-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1rem; }
     .btn-secondary {
-      background: rgba(64, 145, 108, 0.25);
-      border: 1px dashed var(--pine-light);
-      color: #a3f7bf;
-      padding: 0.75rem 1.3rem;
-      border-radius: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
+      background: rgba(64, 145, 108, 0.25); border: 1px dashed var(--pine-light); color: #a3f7bf;
+      padding: 0.75rem 1.3rem; border-radius: 12px; font-family: inherit; font-weight: 600; cursor: pointer; transition: all 0.2s;
     }
-
-    .btn-secondary:hover {
-      background: var(--pine-mid);
-      color: #ffffff;
-    }
-
+    .btn-secondary:hover { background: var(--pine-mid); color: #fff; }
     .btn-submit {
-      background: linear-gradient(135deg, var(--crimson), var(--crimson-dark));
-      color: #ffffff;
-      border: 1px solid var(--gold);
-      padding: 0.85rem 1.8rem;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(214, 40, 40, 0.45);
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: linear-gradient(135deg, var(--crimson), var(--crimson-dark)); color: #fff; border: 1px solid var(--gold);
+      padding: 0.85rem 1.8rem; border-radius: 14px; font-family: inherit; font-weight: 700; font-size: 1rem; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(214, 40, 40, 0.45); transition: transform 0.2s, box-shadow 0.2s;
     }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(214, 40, 40, 0.65); }
+    .btn-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(214, 40, 40, 0.65);
+    /* ---------- Wishlist ---------- */
+    .tabs { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .user-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.15rem; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(252, 191, 73, 0.3); color: var(--icing);
+      font-family: inherit; font-weight: 600; font-size: 0.92rem; cursor: pointer; transition: all 0.2s ease;
     }
+    .user-chip:hover { background: rgba(252, 191, 73, 0.18); transform: translateY(-2px); }
+    .user-chip.active { background: linear-gradient(135deg, var(--crimson), #b81d1d); border-color: var(--gold); color: #fff; box-shadow: 0 4px 15px rgba(214, 40, 40, 0.5); }
+    .user-chip-count { background: rgba(0, 0, 0, 0.35); padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.78rem; color: var(--gold); }
 
-    /* Wishlist Filter & Grid */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .wishlist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .wishlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
     .wish-item-card {
-      background: linear-gradient(160deg, rgba(27, 67, 50, 0.52), rgba(14, 34, 49, 0.92));
-      border: 1px solid rgba(252, 191, 73, 0.3);
-      border-radius: 18px;
-      padding: 1.35rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1rem;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-      position: relative;
+      background: linear-gradient(160deg, rgba(27, 67, 50, 0.52), rgba(14, 34, 49, 0.92)); border: 1px solid rgba(252, 191, 73, 0.3);
+      border-radius: 18px; padding: 1.35rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+      transition: transform 0.25s ease, border-color 0.25s ease; position: relative;
     }
-
-    .wish-item-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4);
-    }
-
-    .wish-card-badges {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
+    .wish-item-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4); }
+    .wish-card-badges { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .wish-user-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.28rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(214, 40, 40, 0.28);
-      color: #ffd166;
-      border: 1px solid rgba(252, 191, 73, 0.45);
+      display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 700; padding: 0.28rem 0.75rem; border-radius: 999px;
+      background: rgba(214, 40, 40, 0.28); color: #ffd166; border: 1px solid rgba(252, 191, 73, 0.45);
     }
-
-    .wish-priority {
-      display: inline-block;
-      font-size: 0.76rem;
-      font-weight: 700;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(252, 191, 73, 0.16);
-      color: var(--gold);
-      border: 1px solid rgba(252, 191, 73, 0.32);
-    }
-
-    .wish-title {
-      font-size: 1.22rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-top: 0.55rem;
-      word-break: break-word;
-    }
-
-    .wish-notes {
-      font-size: 0.9rem;
-      color: #bfd4e6;
-      line-height: 1.45;
-    }
-
-    .wish-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 0.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
+    .wish-priority { display: inline-block; font-size: 0.76rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 999px; background: rgba(252, 191, 73, 0.16); color: var(--gold); border: 1px solid rgba(252, 191, 73, 0.32); }
+    .wish-title { font-size: 1.22rem; font-weight: 700; color: #fff; margin-top: 0.55rem; word-break: break-word; }
+    .wish-notes { font-size: 0.9rem; color: #bfd4e6; line-height: 1.45; margin-top: 0.45rem; word-break: break-word; }
+    .wish-sync { font-size: 0.72rem; color: #ffd8a8; margin-top: 0.4rem; }
+    .wish-actions { display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
     .shop-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--gold);
-      color: #1a1a1a;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.86rem;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      transition: transform 0.2s, background 0.2s;
+      display: inline-flex; align-items: center; gap: 0.4rem; background: var(--gold); color: #1a1a1a; text-decoration: none;
+      font-weight: 700; font-size: 0.86rem; padding: 0.5rem 1rem; border-radius: 10px; transition: transform 0.2s, background 0.2s;
     }
+    .shop-link-btn:hover { background: #ffd166; transform: scale(1.03); }
+    .delete-wish-btn { background: transparent; border: none; color: #ff8787; cursor: pointer; font-family: inherit; font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.6rem; border-radius: 8px; }
+    .delete-wish-btn:hover { background: rgba(214, 40, 40, 0.22); }
 
-    .shop-link-btn:hover {
-      background: #ffd166;
-      transform: scale(1.03);
-    }
-
-    .delete-wish-btn {
-      background: transparent;
-      border: none;
-      color: #ff8787;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.4rem 0.6rem;
-      border-radius: 8px;
-    }
-
-    .delete-wish-btn:hover {
-      background: rgba(214, 40, 40, 0.22);
-    }
-
-    /* Status Banner & Modal */
-    .sync-status {
-      font-size: 0.85rem;
-      padding: 0.4rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #cfe1f2;
-    }
-
+    /* ---------- Modals / toast ---------- */
     .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.72);
-      backdrop-filter: blur(6px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      padding: 1.5rem;
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.72); backdrop-filter: blur(6px);
+      display: none; justify-content: center; align-items: center; z-index: 100; padding: 1.5rem;
     }
+    .modal-backdrop.open { display: flex; }
+    .modal-box { background: #102536; border: 2px solid var(--gold); border-radius: 20px; max-width: 560px; width: 100%; padding: 2rem; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65); max-height: 92vh; overflow-y: auto; }
+    .modal-box.wide { max-width: 980px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .test-result { margin: -0.5rem 0 1rem; font-size: 0.86rem; line-height: 1.5; min-height: 1.2em; color: #cfe1f2; word-break: break-word; }
+    .test-result.bad { color: #ffb3b3; }
+    .test-result.good { color: #b7efc5; }
 
-    .modal-backdrop.open {
-      display: flex;
+    .print-controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between; }
+    .print-options { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .print-options label { font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; color: #cfe1f2; }
+    .preview-area {
+      background: #3b4b57; border-radius: 14px; padding: 1.25rem; overflow: auto; max-height: 62vh;
+      display: flex; flex-direction: column; align-items: center; gap: 1.25rem;
     }
-
-    .modal-box {
-      background: #102536;
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      max-width: 540px;
-      width: 100%;
-      padding: 2rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
-    }
+    .preview-page-wrap { position: relative; box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5); flex: none; }
+    .preview-page-wrap .ps-page { position: absolute; top: 0; left: 0; transform-origin: top left; }
+    .preview-hint { font-size: 0.82rem; color: #9fb7cb; }
 
     .toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 120;
-      background: var(--pine-dark);
-      border: 2px solid var(--gold);
-      color: #fff;
-      padding: 0.9rem 1.35rem;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
-      transform: translateY(120px);
-      opacity: 0;
-      transition: all 0.3s ease;
+      position: fixed; bottom: 24px; right: 24px; z-index: 120; background: var(--pine-dark); border: 2px solid var(--gold); color: #fff;
+      padding: 0.9rem 1.35rem; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.45); max-width: 360px;
+      transform: translateY(140px); opacity: 0; transition: all 0.3s ease; pointer-events: none;
     }
+    .toast.show { transform: translateY(0); opacity: 1; }
 
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
+    /* =====================================================
+       PRINTABLE SHEET  (US Letter = 816 x 1056 px @ 96dpi)
+       ===================================================== */
+    #print-root { position: fixed; left: -10000px; top: 0; width: 816px; z-index: -1; }
+    .ps-page {
+      width: 816px; height: 1056px; background: #d62828; position: relative; overflow: hidden;
+      font-family: 'Plus Jakarta Sans', sans-serif; color: #2b2b2b; flex: none;
+    }
+    .ps-inner {
+      position: absolute; inset: 12px; background: #fffaf2; border: 4px solid #1b4332; border-radius: 6px;
+      padding: 28px 40px 0; display: flex; flex-direction: column;
+    }
+    .ps-inner::before { content: ''; position: absolute; inset: 8px; border: 2px dashed #e0b44c; border-radius: 4px; pointer-events: none; }
+    .ps-corner { position: absolute; font-size: 28px; line-height: 1; }
+    .ps-corner.tl { top: 14px; left: 16px; } .ps-corner.tr { top: 14px; right: 16px; }
+    .ps-corner.bl { bottom: 14px; left: 16px; } .ps-corner.br { bottom: 14px; right: 16px; }
+    .ps-header { text-align: center; position: relative; }
+    .ps-header.big { height: 190px; }
+    .ps-header.small { height: 70px; }
+    .ps-garland { font-size: 18px; letter-spacing: 6px; color: #2d6a4f; height: 24px; }
+    .ps-title { font-family: 'Mountains of Christmas', cursive; font-weight: 700; color: #c1121f; line-height: 1.05; }
+    .ps-header.big .ps-title { font-size: 58px; margin-top: 4px; }
+    .ps-header.small .ps-title { font-size: 32px; margin-top: 2px; }
+    .ps-sub { font-weight: 800; font-size: 20px; color: #1b4332; margin-top: 6px; letter-spacing: 0.5px; }
+    .ps-date { font-size: 12px; color: #7a6a52; margin-top: 4px; font-weight: 600; }
+    .ps-tree { position: absolute; top: 34px; }
+    .ps-tree.l { left: 6px; } .ps-tree.r { right: 6px; }
+    .ps-header.small .ps-tree { display: none; }
+    .ps-body { flex: 1; }
+    .ps-head {
+      height: 48px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+      font-family: 'Mountains of Christmas', cursive; font-weight: 700; font-size: 30px; color: #fff;
+      background: #2d6a4f; border-radius: 12px; padding: 0 16px; border-bottom: 4px solid #1b4332;
+    }
+    .ps-head.cy { background: #c1121f; border-bottom-color: #8d0d17; }
+    .ps-head .cnt { margin-left: auto; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; background: rgba(255,255,255,0.22); padding: 3px 12px; border-radius: 999px; }
+    .ps-item {
+      height: 64px; margin-bottom: 8px; display: flex; align-items: center; gap: 14px; padding: 0 14px;
+      background: #fff; border: 1.5px solid #e6d3a8; border-radius: 12px; overflow: hidden;
+    }
+    .ps-check { width: 24px; height: 24px; border: 2.5px solid #2d6a4f; border-radius: 6px; flex: none; background: #fff; }
+    .ps-main { flex: 1; min-width: 0; }
+    .ps-name { font-weight: 800; font-size: 16px; color: #1c1c1c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ps-note { font-size: 12px; color: #5b5b5b; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ps-link { font-size: 11px; color: #1d6fa5; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+    .ps-badge { flex: none; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px; white-space: nowrap; border: 1.5px solid; }
+    .ps-badge.top { background: #fff1c9; color: #8a5a00; border-color: #f0b429; }
+    .ps-badge.nice { background: #dcf5e4; color: #1b6b3a; border-color: #52b788; }
+    .ps-badge.stock { background: #fde2e2; color: #a61e1e; border-color: #ef8d8d; }
+    .ps-empty { text-align: center; color: #7a6a52; font-size: 18px; padding-top: 120px; line-height: 1.8; }
+    .ps-footer { height: 50px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #7a6a52; }
+
+    @page { size: letter portrait; margin: 0; }
+    @media print {
+      html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; }
+      body > *:not(#print-root) { display: none !important; }
+      #print-root { position: static !important; left: auto !important; width: 8.5in !important; z-index: auto !important; display: block !important; }
+      .ps-page {
+        width: 8.5in; height: 10.97in; break-after: page; page-break-after: always;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .ps-page:last-child { break-after: auto; page-break-after: auto; }
+      .ps-page * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Animated Falling Snowflakes Canvas -->
   <canvas id="snow-canvas"></canvas>
 
-  <!-- Sticky Navigation Bar -->
   <header class="navbar">
     <a href="#top" class="brand">🎄 Rhegine &amp; Cy Wishlist 2026</a>
     <nav class="nav-links">
       <a href="#top">Village Home</a>
-      <a href="#users-section">Wishmakers</a>
       <a href="#add-section">Add Wishes</a>
       <a href="#wishlist-section">All Wishes (<span id="nav-count">0</span>)</a>
     </nav>
     <div class="nav-actions">
-      <button id="audio-btn" class="btn-pill playing" onclick="toggleChristmasMusic()">
-        🎶 Pause Holiday Music
-      </button>
-      <button class="btn-pill" onclick="openSyncModal()">
-        📊 Google Sheet Sync
-      </button>
+      <button type="button" id="audio-btn" class="btn-pill playing">🎶 Pause Holiday Music</button>
+      <button type="button" id="open-print-btn" class="btn-pill gold">🖨️ Print / PNG</button>
+      <button type="button" id="sync-pill" class="btn-pill sync-pill" data-state="syncing">⏳ Connecting…</button>
     </div>
   </header>
 
-  <!-- Hero Section with Animated Pine Trees & Gingerbread House -->
   <section id="top" class="hero">
-    <div class="countdown-badge" id="countdown-timer">
-      🎅 Loading 2026 Christmas Countdown...
-    </div>
+    <div class="countdown-badge" id="countdown-timer">🎅 Loading 2026 Christmas Countdown...</div>
     <h1>Rhegine &amp; Cy Christmas Wishlist 2026</h1>
-    <p>
-      Welcome to our cozy Christmas village! Switch between <strong>Rhegine</strong>, <strong>Cy</strong>, or add your own profile to build your 2026 holiday wishlist synced live with Google Sheets.
-    </p>
+    <p>Welcome to our cozy Christmas village! Add your wishes for <strong>Rhegine</strong> and <strong>Cy</strong>, saved live to Google Sheets, then print or export a pretty wishlist.</p>
 
-    <!-- SVG Animated Winter Village: Pine Trees & Gingerbread House -->
     <div class="village-scene" aria-label="Animated Pine Trees and Gingerbread House">
-      <!-- Left Pine Tree -->
       <svg class="pine-tree" width="150" height="200" viewBox="0 0 150 200">
         <rect x="65" y="165" width="20" height="35" fill="#5c3a21" />
         <polygon points="75,15 20,90 130,90" fill="#2d6a4f" />
@@ -711,7 +330,6 @@
         <circle class="twinkle-light alt" cx="105" cy="148" r="4" fill="#fcbf49" />
       </svg>
 
-      <!-- Center Gingerbread House -->
       <svg class="gingerbread-house" width="260" height="220" viewBox="0 0 260 220">
         <circle class="smoke" cx="185" cy="35" r="9" fill="rgba(255,255,255,0.65)" />
         <circle class="smoke s2" cx="190" cy="25" r="12" fill="rgba(255,255,255,0.5)" />
@@ -735,7 +353,6 @@
         <circle cx="158" cy="88" r="6" fill="#fcbf49" />
       </svg>
 
-      <!-- Right Pine Tree -->
       <svg class="pine-tree delay-1" width="140" height="185" viewBox="0 0 150 200">
         <rect x="65" y="165" width="20" height="35" fill="#5c3a21" />
         <polygon points="75,20 22,92 128,92" fill="#1b4332" />
@@ -751,505 +368,638 @@
     </div>
   </section>
 
-  <!-- Main Application Container -->
   <main class="container">
 
-    <!-- 1. User Profiles & Add User Section -->
-    <section id="users-section" class="festive-card">
-      <div class="section-header">
-        <h2 class="section-title">🎅 Select or Add a Wishmaker</h2>
-        <span style="font-size: 0.9rem; color: #cfe1f2;">Click a profile to view or add to their wishlist</span>
-      </div>
-
-      <!-- Dynamic User Chips -->
-      <div id="users-bar" class="users-bar"></div>
-
-      <!-- Add New User Form -->
-      <form class="add-user-form" onsubmit="handleAddUser(event)">
-        <span style="font-weight: 600; color: var(--gold);">➕ New User:</span>
-        <input
-          type="text"
-          id="new-user-input"
-          class="input-field"
-          placeholder="Enter name (e.g., Mom, Dad, Alex)..."
-          style="max-width: 280px;"
-          required
-        />
-        <button type="submit" class="btn-pill" style="background: var(--pine-mid);">
-          ✨ Add User &amp; Start Wishlist
-        </button>
-      </form>
-    </section>
-
-    <!-- 2. Multi-Item Wishlist Builder Section -->
     <section id="add-section" class="festive-card">
       <div class="section-header">
         <h2 class="section-title">🎁 Add Items to Wishlist</h2>
-        <span id="sync-indicator" class="sync-status">🟢 Connected to Google Sheet</span>
       </div>
 
-      <div class="active-owner-banner">
-        <span style="font-weight: 600; color: var(--gold);">👤 Adding wishes for:</span>
-        <select id="default-user-select" class="select-field" style="max-width: 240px;" onchange="syncRowUsersToDefault(this.value)">
-          <!-- Populated dynamically -->
-        </select>
-        <span style="font-size: 0.86rem; color: #cfe1f2;">
-          (You can also assign individual rows to different users below)
-        </span>
-      </div>
-
-      <form id="wishlist-form" onsubmit="handleBatchSubmit(event)">
-        <div id="item-rows" class="item-rows-container">
-          <!-- Dynamic rows injected by JS -->
-        </div>
-
+      <form id="wishlist-form" novalidate>
+        <div id="item-rows" class="item-rows-container"></div>
         <div class="form-footer">
-          <button type="button" class="btn-secondary" onclick="addItemRow()">
-            ➕ Add Another Item Row
-          </button>
-          <button type="submit" id="submit-btn" class="btn-submit">
-            ✨ Save All Items to Wishlist
-          </button>
+          <button type="button" class="btn-secondary" id="add-row-btn">➕ Add Another Item Row</button>
+          <button type="submit" id="submit-btn" class="btn-submit">✨ Save All Items to Wishlist</button>
         </div>
       </form>
     </section>
 
-    <!-- 3. Saved Wishlist Display Section -->
     <section id="wishlist-section" class="festive-card">
       <div class="section-header">
         <h2 class="section-title" id="wishlist-heading">🦌 Rhegine &amp; Cy's 2026 Wishes</h2>
         <div class="filter-bar">
-          <input
-            type="search"
-            id="search-input"
-            class="input-field"
-            placeholder="🔍 Search gifts or notes..."
-            style="width: 210px;"
-            oninput="renderWishlist()"
-          />
-          <select id="priority-filter" class="select-field" style="width: 175px;" onchange="renderWishlist()">
+          <input type="search" id="search-input" class="input-field" placeholder="🔍 Search gifts or notes..." style="width: 210px;" />
+          <select id="priority-filter" class="select-field" style="width: 175px;">
             <option value="ALL">All Priorities</option>
             <option value="⭐ Top Wish">⭐ Top Wish</option>
             <option value="🎄 Nice to Have">🎄 Nice to Have</option>
             <option value="🧦 Stocking Stuffer">🧦 Stocking Stuffer</option>
           </select>
-          <button type="button" class="btn-pill" onclick="fetchFromGoogleSheet()">
-            🔄 Refresh Sheet
-          </button>
+          <button type="button" class="btn-pill" id="refresh-btn">🔄 Refresh Sheet</button>
         </div>
       </div>
 
+      <div id="tabs" class="tabs"></div>
       <div id="wishlist-grid" class="wishlist-grid"></div>
     </section>
   </main>
 
-  <!-- Google Sheets Configuration Modal -->
+  <!-- Google Sheet connection modal -->
   <div id="sync-modal" class="modal-backdrop">
     <div class="modal-box">
-      <h3 class="section-title" style="font-size: 1.75rem; margin-bottom: 0.75rem;">
-        📊 Connected Google Sheet
-      </h3>
-      <p style="color: #cfe1f2; font-size: 0.92rem; line-height: 1.5; margin-bottom: 1.2rem;">
-        Your <strong>Google Apps Script Web App URL</strong> is pre-configured below. Every user and wishlist item syncs automatically with your Google Sheet.
+      <h3 class="section-title" style="font-size: 1.75rem; margin-bottom: 0.75rem;">📊 Google Sheet Connection</h3>
+      <p style="color: #cfe1f2; font-size: 0.92rem; line-height: 1.5; margin-bottom: 1rem;">
+        Paste your <strong>Apps Script Web App URL</strong> (ends with <code>/exec</code>). Use <strong>Test connection</strong> to check it.
       </p>
-      <input
-        type="url"
-        id="script-url-input"
-        class="input-field"
-        value="https://script.google.com/macros/s/AKfycbyqitGC0Ozxc5FVFqh1b91NhOGONx0yyo8ERb9C6cTstWwjd9cU4KpylCFeKLItYLRJ/exec"
-        style="margin-bottom: 1.25rem;"
-      />
-      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
-        <button type="button" class="btn-pill" onclick="closeSyncModal()">Cancel</button>
-        <button type="button" class="btn-submit" style="padding: 0.6rem 1.3rem;" onclick="saveScriptUrl()">
-          Save &amp; Sync Now
-        </button>
+      <input type="url" id="script-url-input" class="input-field" style="margin-bottom: 1rem;" />
+      <div id="test-result" class="test-result"></div>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+        <button type="button" class="btn-pill" id="test-conn-btn">🧪 Test connection</button>
+        <div style="display: flex; gap: 0.75rem;">
+          <button type="button" class="btn-pill" id="sync-cancel-btn">Close</button>
+          <button type="button" class="btn-submit" style="padding: 0.6rem 1.3rem;" id="sync-save-btn">Save &amp; Sync Now</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Notification Toast -->
+  <!-- Print / PNG preview modal -->
+  <div id="print-modal" class="modal-backdrop">
+    <div class="modal-box wide">
+      <h3 class="section-title" style="font-size: 1.75rem;">🖨️ Print or Export Wishlist (Letter 8.5 × 11 in)</h3>
+      <div class="print-controls">
+        <div class="print-options">
+          <select id="print-who" class="select-field" style="width: 190px;">
+            <option value="BOTH">💝🎸 Rhegine &amp; Cy</option>
+            <option value="Rhegine">💝 Rhegine only</option>
+            <option value="Cy">🎸 Cy only</option>
+          </select>
+          <label><input type="checkbox" id="print-links" checked /> Show shopping links</label>
+          <label><input type="checkbox" id="print-notes" checked /> Show notes</label>
+        </div>
+        <div class="print-options">
+          <button type="button" class="btn-pill" id="print-png-btn">🖼️ Download PNG</button>
+          <button type="button" class="btn-submit" style="padding: 0.6rem 1.3rem;" id="print-go-btn">🖨️ Print</button>
+          <button type="button" class="btn-pill" id="print-close-btn">Close</button>
+        </div>
+      </div>
+      <div id="preview-area" class="preview-area"></div>
+      <div class="preview-hint">Tip: in the print dialog choose paper size <strong>Letter</strong>, margins <strong>None</strong>, and turn on <strong>Background graphics</strong> for the full Christmas colors. Multiple pages download as separate PNG files.</div>
+    </div>
+  </div>
+
+  <div id="print-root" aria-hidden="true"></div>
   <div id="toast" class="toast">Saved to Wishlist!</div>
 
   <script>
     /**************************************************************
-     * 1. EMBEDDED GOOGLE SHEETS WEB APP URL & MULTI-USER STATE
+     * 1. STATE
      **************************************************************/
     const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqitGC0Ozxc5FVFqh1b91NhOGONx0yyo8ERb9C6cTstWwjd9cU4KpylCFeKLItYLRJ/exec';
-    let scriptUrl = localStorage.getItem('xmas2026_script_url') || DEFAULT_SCRIPT_URL;
+    const OWNERS = ['Rhegine', 'Cy'];
+    const OWNER_ICON = { Rhegine: '💝', Cy: '🎸' };
+    const PRIORITIES = ['⭐ Top Wish', '🎄 Nice to Have', '🧦 Stocking Stuffer'];
+    const LS_ITEMS = 'xmas2026_items_v2';
+    const LS_DELETES = 'xmas2026_pending_deletes_v2';
+    const LS_URL = 'xmas2026_script_url';
 
-    const DEFAULT_USERS = ['Rhegine', 'Cy'];
-    let usersList = JSON.parse(localStorage.getItem('xmas2026_users')) || [...DEFAULT_USERS];
-    // Ensure Rhegine and Cy are always present
-    DEFAULT_USERS.forEach(u => {
-      if (!usersList.some(existing => existing.toLowerCase() === u.toLowerCase())) {
-        usersList.push(u);
-      }
-    });
-
-    let selectedUserFilter = 'ALL'; // 'ALL' or specific user name
-    let activeFormUser = usersList[0] || 'Rhegine';
-    let wishlistItems = JSON.parse(localStorage.getItem('xmas2026_items')) || [];
-
-    // Helper to pack/unpack user inside the Notes column so existing Code.gs works without redeploying
-    function packNotesWithUser(user, notes) {
-      const cleanUser = (user || 'Rhegine').trim();
-      const cleanNotes = (notes || '').trim();
-      return cleanNotes ? `👤 ${cleanUser} | ${cleanNotes}` : `👤 ${cleanUser}`;
+    function lsGet(key, fallback) {
+      try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch (e) { return fallback; }
+    }
+    function lsSet(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* storage unavailable */ }
     }
 
-    function unpackUserAndNotes(item) {
-      let user = item.user || '';
-      let rawNotes = String(item.notes || '');
+    let scriptUrl = (function () {
+      try { return localStorage.getItem(LS_URL) || DEFAULT_SCRIPT_URL; } catch (e) { return DEFAULT_SCRIPT_URL; }
+    })();
+    let items = [];
+    let pendingDeletes = lsGet(LS_DELETES, []);
+    let selectedTab = 'ALL';
+    let flushing = false;
+    let flushAgain = false;
+    let lastError = '';
+    let syncState = 'syncing';
 
-      const match = rawNotes.match(/^👤\s*([^|]+?)(?:\s*\|\s*(.*))?$/);
-      if (match) {
-        user = match[1].trim();
-        rawNotes = (match[2] || '').trim();
-      }
+    function normalizeOwner(v) {
+      return String(v || '').trim().toLowerCase() === 'cy' ? 'Cy' : 'Rhegine';
+    }
 
-      if (!user) user = 'Rhegine';
-
-      // Auto-register any user discovered from Google Sheet rows
-      if (!usersList.some(u => u.toLowerCase() === user.toLowerCase())) {
-        usersList.push(user);
-        localStorage.setItem('xmas2026_users', JSON.stringify(usersList));
-      }
-
+    // Reads items saved by the earlier version, where the owner was packed into the notes text
+    function normalizeItem(raw, synced) {
+      let notes = String(raw.notes || '');
+      let owner = raw.owner || raw.user || '';
+      const m = notes.match(/^👤\s*([^|]+?)(?:\s*\|\s*([\s\S]*))?$/);
+      if (m) { owner = owner || m[1]; notes = (m[2] || '').trim(); }
       return {
-        ...item,
-        user,
-        cleanNotes: rawNotes
+        id: String(raw.id || ('wish-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7))),
+        timestamp: String(raw.timestamp || new Date().toISOString()),
+        owner: normalizeOwner(owner),
+        name: String(raw.name || 'Untitled Gift'),
+        link: String(raw.link || ''),
+        priority: PRIORITIES.includes(raw.priority) ? raw.priority : '🎄 Nice to Have',
+        notes: notes,
+        synced: synced === undefined ? !!raw.synced : synced
       };
     }
 
-    /**************************************************************
-     * 2. USER MANAGEMENT (ADD USER & SELECT USER WISHLIST)
-     **************************************************************/
-    function renderUsersUI() {
-      const usersBar = document.getElementById('users-bar');
-      const defaultSelect = document.getElementById('default-user-select');
+    function saveItems() { lsSet(LS_ITEMS, items); }
+    function saveDeletes() { lsSet(LS_DELETES, pendingDeletes); }
+    function byTimeDesc(a, b) { return (Date.parse(b.timestamp) || 0) - (Date.parse(a.timestamp) || 0); }
 
-      const normalizedItems = wishlistItems.map(unpackUserAndNotes);
-      const totalCount = normalizedItems.length;
-
-      let chipsHtml = `
-        <button type="button" class="user-chip ${selectedUserFilter === 'ALL' ? 'active' : ''}" onclick="selectUserProfile('ALL')">
-          🎄 All Wishlists <span class="user-chip-count">${totalCount}</span>
-        </button>
-      `;
-
-      usersList.forEach(user => {
-        const count = normalizedItems.filter(i => i.user.toLowerCase() === user.toLowerCase()).length;
-        const isActive = selectedUserFilter.toLowerCase() === user.toLowerCase();
-        const icon = user.toLowerCase() === 'rhegine' ? '💝' : user.toLowerCase() === 'cy' ? '🎸' : '🎁';
-        chipsHtml += `
-          <button type="button" class="user-chip ${isActive ? 'active' : ''}" onclick="selectUserProfile('${escapeAttribute(user)}')">
-            ${icon} ${escapeHtml(user)} <span class="user-chip-count">${count}</span>
-          </button>
-        `;
-      });
-
-      usersBar.innerHTML = chipsHtml;
-
-      // Populate active form owner dropdown
-      defaultSelect.innerHTML = usersList.map(user => `
-        <option value="${escapeAttribute(user)}" ${user.toLowerCase() === activeFormUser.toLowerCase() ? 'selected' : ''}>
-          ${escapeHtml(user)}'s Wishlist
-        </option>
-      `).join('');
-
-      // Update any existing form row dropdowns
-      document.querySelectorAll('.row-user').forEach(selectEl => {
-        const currentVal = selectEl.value || activeFormUser;
-        selectEl.innerHTML = usersList.map(user => `
-          <option value="${escapeAttribute(user)}" ${user.toLowerCase() === currentVal.toLowerCase() ? 'selected' : ''}>
-            👤 ${escapeHtml(user)}
-          </option>
-        `).join('');
-      });
-    }
-
-    function selectUserProfile(userOrAll) {
-      selectedUserFilter = userOrAll;
-      if (userOrAll !== 'ALL') {
-        activeFormUser = userOrAll;
-        syncRowUsersToDefault(activeFormUser);
+    function loadInitialItems() {
+      let stored = lsGet(LS_ITEMS, null);
+      if (!stored) {
+        // migrate items from the earlier version; they are re-checked against the sheet on first refresh
+        const old = lsGet('xmas2026_items', []);
+        stored = old.map(o => normalizeItem(o, false));
+        if (stored.length) lsSet(LS_ITEMS, stored);
       }
-      renderUsersUI();
-      renderWishlist();
-    }
-
-    function syncRowUsersToDefault(newUser) {
-      activeFormUser = newUser;
-      document.querySelectorAll('.row-user').forEach(selectEl => {
-        selectEl.value = newUser;
-      });
-    }
-
-    function handleAddUser(e) {
-      e.preventDefault();
-      const input = document.getElementById('new-user-input');
-      const newName = input.value.trim();
-      if (!newName) return;
-
-      const existing = usersList.find(u => u.toLowerCase() === newName.toLowerCase());
-      if (existing) {
-        selectUserProfile(existing);
-        showToast(`🎄 Switched to ${existing}'s wishlist!`);
-      } else {
-        usersList.push(newName);
-        localStorage.setItem('xmas2026_users', JSON.stringify(usersList));
-        selectUserProfile(newName);
-        playJingleChime();
-        showToast(`🎅 Added ${newName}! You can now add items to ${newName}'s wishlist.`);
-      }
-
-      input.value = '';
+      items = stored.map(s => normalizeItem(s)).sort(byTimeDesc);
     }
 
     /**************************************************************
-     * 3. MULTI-ITEM DYNAMIC FORM ROWS
+     * 2. GOOGLE SHEETS SYNC
      **************************************************************/
-    function addItemRow(defaults = { user: activeFormUser, name: '', link: '', priority: '⭐ Top Wish', notes: '' }) {
-      const container = document.getElementById('item-rows');
+    function urlWithCacheBust(u) { return u + (u.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now(); }
+
+    async function getRemote() {
+      if (!scriptUrl) throw new Error('No Google Sheet URL set');
+      const res = await fetch(urlWithCacheBust(scriptUrl), { redirect: 'follow' });
+      let data;
+      try { data = await res.json(); }
+      catch (e) { throw new Error('The URL did not return wishlist data. Deploy the web app with access set to "Anyone".'); }
+      if (!data || data.status === 'error') throw new Error((data && data.message) || 'Google Sheet returned an error');
+      if (!Array.isArray(data.items)) throw new Error('Unexpected reply from Google Sheet');
+      return data.items;
+    }
+
+    // Sends a write. Returns {verified:true} when the reply was readable, {verified:false} for a blind send.
+    async function postJSON(payload) {
+      if (!scriptUrl) throw new Error('No Google Sheet URL set');
+      const body = JSON.stringify(payload);
+      try {
+        const res = await fetch(scriptUrl, { method: 'POST', body: body, redirect: 'follow' });
+        const data = await res.json();
+        if (data && data.status === 'error') throw new Error(data.message || 'Google Sheet error');
+        return { verified: true };
+      } catch (err) {
+        if (err && err.message && !/Failed to fetch|NetworkError|Load failed|JSON|Unexpected token/i.test(err.message)) throw err;
+        // Reply not readable: send once more without CORS. The sheet ignores duplicate IDs.
+        await fetch(scriptUrl, { method: 'POST', mode: 'no-cors', body: body, redirect: 'follow' });
+        return { verified: false };
+      }
+    }
+
+    function toSheetItem(i) {
+      return { id: i.id, timestamp: i.timestamp, owner: i.owner, name: i.name, link: i.link, priority: i.priority, notes: i.notes };
+    }
+
+    function setSync(state) {
+      syncState = state;
+      const pill = document.getElementById('sync-pill');
+      if (!pill) return;
+      const waiting = items.filter(i => !i.synced).length + pendingDeletes.length;
+      pill.dataset.state = state;
+      pill.textContent =
+        state === 'ok' ? '🟢 Synced with Google Sheet' :
+        state === 'syncing' ? '⏳ Syncing…' :
+        state === 'pending' ? '🟠 ' + waiting + ' waiting to sync' :
+        '🔴 Sync problem – tap for details';
+      pill.title = lastError || 'Google Sheet connection';
+    }
+
+    async function flush() {
+      if (!scriptUrl) { setSync('pending'); return; }
+      if (flushing) { flushAgain = true; return; }
+      flushing = true;
+      setSync('syncing');
+      try {
+        do {
+          flushAgain = false;
+          const unsynced = items.filter(i => !i.synced);
+          if (unsynced.length) {
+            const r = await postJSON({ action: 'add', items: unsynced.map(toSheetItem) });
+            let confirmed = null;
+            if (!r.verified) {
+              const remote = await getRemote();
+              confirmed = new Set(remote.map(x => String(x.id)));
+            }
+            unsynced.forEach(u => {
+              if (!confirmed || confirmed.has(u.id)) {
+                const target = items.find(i => i.id === u.id);
+                if (target) target.synced = true;
+              }
+            });
+            saveItems();
+          }
+          for (const id of pendingDeletes.slice()) {
+            await postJSON({ action: 'delete', id: id });
+            pendingDeletes = pendingDeletes.filter(x => x !== id);
+            saveDeletes();
+          }
+        } while (flushAgain);
+        lastError = '';
+        setSync(items.some(i => !i.synced) || pendingDeletes.length ? 'pending' : 'ok');
+      } catch (err) {
+        lastError = err.message || String(err);
+        setSync('error');
+      } finally {
+        flushing = false;
+        renderAll();
+      }
+    }
+
+    async function refreshFromSheet(manual) {
+      if (!scriptUrl) { if (manual) showToast('⚠️ Set your Google Sheet URL first'); return; }
+      setSync('syncing');
+      try {
+        await flush();
+        const remote = await getRemote();
+        const remoteItems = remote.map(r => normalizeItem(r, true)).filter(i => !pendingDeletes.includes(i.id));
+        const remoteIds = new Set(remoteItems.map(i => i.id));
+        const localOnly = items.filter(i => !i.synced && !remoteIds.has(i.id));
+        items = remoteItems.concat(localOnly).sort(byTimeDesc);
+        saveItems();
+        lastError = '';
+        setSync(items.some(i => !i.synced) || pendingDeletes.length ? 'pending' : 'ok');
+        renderAll();
+        if (manual) showToast('✅ Synced with Google Sheet!');
+        if (items.some(i => !i.synced) || pendingDeletes.length) flush();
+      } catch (err) {
+        lastError = err.message || String(err);
+        setSync('error');
+        renderAll();
+        if (manual) showToast('⚠️ ' + lastError);
+      }
+    }
+
+    /**************************************************************
+     * 3. FORM ROWS
+     **************************************************************/
+    function ownerOptions(selected) {
+      return OWNERS.map(o => '<option value="' + o + '"' + (o === selected ? ' selected' : '') + '>' + OWNER_ICON[o] + ' ' + o + '</option>').join('');
+    }
+
+    function addItemRow(defaults) {
+      const d = Object.assign({ owner: selectedTab === 'Cy' ? 'Cy' : 'Rhegine', name: '', link: '', priority: PRIORITIES[0], notes: '' }, defaults || {});
       const row = document.createElement('div');
       row.className = 'item-entry-row';
-
-      const userOptions = usersList.map(u => `
-        <option value="${escapeAttribute(u)}" ${u.toLowerCase() === (defaults.user || activeFormUser).toLowerCase() ? 'selected' : ''}>
-          👤 ${escapeHtml(u)}
-        </option>
-      `).join('');
-
-      row.innerHTML = `
-        <select class="select-field row-user" title="Wishlist Owner">
-          ${userOptions}
-        </select>
-        <input type="text" class="input-field row-name" placeholder="🎁 Item Name (e.g., Espresso Maker)" value="${defaults.name}" required />
-        <input type="url" class="input-field row-link" placeholder="🔗 Online Shopping Link (https://...)" value="${defaults.link}" required />
-        <select class="select-field row-priority">
-          <option value="⭐ Top Wish" ${defaults.priority === '⭐ Top Wish' ? 'selected' : ''}>⭐ Top Wish</option>
-          <option value="🎄 Nice to Have" ${defaults.priority === '🎄 Nice to Have' ? 'selected' : ''}>🎄 Nice to Have</option>
-          <option value="🧦 Stocking Stuffer" ${defaults.priority === '🧦 Stocking Stuffer' ? 'selected' : ''}>🧦 Stocking Stuffer</option>
-        </select>
-        <input type="text" class="input-field row-notes" placeholder="📝 Size, color, or store note" value="${defaults.notes}" />
-        <button type="button" class="btn-remove-row" title="Remove row" onclick="removeRow(this)">✕</button>
-      `;
-      container.appendChild(row);
+      row.innerHTML =
+        '<select class="select-field row-owner" title="Whose wishlist?">' + ownerOptions(d.owner) + '</select>' +
+        '<input type="text" class="input-field row-name" placeholder="🎁 Item Name (e.g., Espresso Maker)" value="' + escapeHtml(d.name) + '" />' +
+        '<input type="url" class="input-field row-link" placeholder="🔗 Online Shopping Link (https://...)" value="' + escapeHtml(d.link) + '" />' +
+        '<select class="select-field row-priority">' +
+          PRIORITIES.map(p => '<option value="' + p + '"' + (p === d.priority ? ' selected' : '') + '>' + p + '</option>').join('') +
+        '</select>' +
+        '<input type="text" class="input-field row-notes" placeholder="📝 Size, color, or store note" value="' + escapeHtml(d.notes) + '" />' +
+        '<button type="button" class="btn-remove-row" title="Remove row">✕</button>';
+      document.getElementById('item-rows').appendChild(row);
     }
 
-    function removeRow(btn) {
-      const container = document.getElementById('item-rows');
-      if (container.children.length > 1) {
-        btn.parentElement.remove();
-      } else {
-        btn.parentElement.querySelectorAll('input').forEach(inp => inp.value = '');
-      }
+    function normalizeLink(raw) {
+      let v = String(raw || '').trim();
+      if (!v) return '';
+      if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+      try { const u = new URL(v); return /^https?:$/.test(u.protocol) ? u.href : ''; } catch (e) { return ''; }
     }
 
-    async function handleBatchSubmit(e) {
+    function handleBatchSubmit(e) {
       e.preventDefault();
-      const rows = document.querySelectorAll('.item-entry-row');
+      const rows = Array.from(document.querySelectorAll('.item-entry-row'));
       const newItems = [];
+      let problem = '';
 
-      rows.forEach(row => {
-        const user = row.querySelector('.row-user').value.trim() || activeFormUser;
+      rows.forEach((row, idx) => {
+        const owner = row.querySelector('.row-owner').value;
         const name = row.querySelector('.row-name').value.trim();
-        const link = row.querySelector('.row-link').value.trim();
+        const rawLink = row.querySelector('.row-link').value.trim();
         const priority = row.querySelector('.row-priority').value;
-        const rawNotes = row.querySelector('.row-notes').value.trim();
-
-        if (name && link) {
-          newItems.push({
-            id: 'wish-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
-            timestamp: new Date().toISOString(),
-            user,
-            name,
-            link,
-            priority,
-            notes: packNotesWithUser(user, rawNotes)
-          });
-        }
+        const notes = row.querySelector('.row-notes').value.trim();
+        if (!name && !rawLink && !notes) return; // untouched row
+        const link = normalizeLink(rawLink);
+        if (!name) { problem = 'Row ' + (idx + 1) + ': please enter an item name'; return; }
+        if (rawLink && !link) { problem = 'Row ' + (idx + 1) + ': that shopping link does not look right'; return; }
+        newItems.push({
+          id: 'wish-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+          timestamp: new Date().toISOString(),
+          owner: normalizeOwner(owner), name: name, link: link, priority: priority, notes: notes, synced: false
+        });
       });
 
-      if (newItems.length === 0) return;
+      if (problem) { showToast('⚠️ ' + problem); return; }
+      if (!newItems.length) { showToast('🎁 Type at least one item name first'); return; }
 
       playJingleChime();
-
-      wishlistItems = [...newItems, ...wishlistItems];
-      localStorage.setItem('xmas2026_items', JSON.stringify(wishlistItems));
-      renderUsersUI();
-      renderWishlist();
-
+      items = newItems.concat(items).sort(byTimeDesc);
+      saveItems();
       document.getElementById('item-rows').innerHTML = '';
-      addItemRow();
-
-      if (scriptUrl) {
-        const btn = document.getElementById('submit-btn');
-        btn.textContent = '⏳ Syncing to Google Sheet...';
-        try {
-          await fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ action: 'add', items: newItems })
-          });
-          showToast(`🎄 Saved ${newItems.length} wish(es) to Google Sheets!`);
-        } catch (err) {
-          showToast('⚠️ Saved locally (check connection)');
-        } finally {
-          btn.textContent = '✨ Save All Items to Wishlist';
-        }
-      }
+      addItemRow({ owner: newItems[0].owner });
+      renderAll();
+      showToast('🎄 Saved ' + newItems.length + ' wish(es) – syncing to Google Sheet…');
+      flush().then(() => {
+        if (syncState === 'ok') showToast('✅ ' + newItems.length + ' wish(es) are in your Google Sheet');
+        else if (syncState === 'error') showToast('⚠️ Saved on this device, but sync failed: ' + lastError);
+      });
     }
 
     /**************************************************************
-     * 4. RENDER WISHLIST & GOOGLE SHEETS SYNC
+     * 4. RENDER
      **************************************************************/
+    function safeHref(u) { return /^https?:\/\//i.test(u) ? u : ''; }
+
+    function renderTabs() {
+      const counts = { ALL: items.length };
+      OWNERS.forEach(o => { counts[o] = items.filter(i => i.owner === o).length; });
+      const tabs = [['ALL', '🎄 All Wishlists'], ['Rhegine', '💝 Rhegine'], ['Cy', '🎸 Cy']];
+      document.getElementById('tabs').innerHTML = tabs.map(t =>
+        '<button type="button" class="user-chip' + (selectedTab === t[0] ? ' active' : '') + '" data-tab="' + t[0] + '">' +
+        t[1] + ' <span class="user-chip-count">' + counts[t[0]] + '</span></button>'
+      ).join('');
+    }
+
     function renderWishlist() {
       const grid = document.getElementById('wishlist-grid');
-      const heading = document.getElementById('wishlist-heading');
       const search = document.getElementById('search-input').value.toLowerCase();
       const filter = document.getElementById('priority-filter').value;
 
-      const normalizedItems = wishlistItems.map(unpackUserAndNotes);
+      document.getElementById('nav-count').textContent = items.length;
+      document.getElementById('wishlist-heading').innerHTML = selectedTab === 'ALL'
+        ? '🦌 Rhegine &amp; Cy\'s 2026 Wishes'
+        : '🦌 ' + escapeHtml(selectedTab) + '\'s 2026 Christmas Wishlist';
 
-      document.getElementById('nav-count').textContent = normalizedItems.length;
-      document.getElementById('sync-indicator').textContent = scriptUrl
-        ? '🟢 Connected to Google Sheet'
-        : '💾 Local Mode';
+      const filtered = items.filter(i =>
+        (selectedTab === 'ALL' || i.owner === selectedTab) &&
+        (filter === 'ALL' || i.priority === filter) &&
+        (i.name.toLowerCase().includes(search) || i.notes.toLowerCase().includes(search) || i.owner.toLowerCase().includes(search))
+      );
 
-      heading.innerHTML = selectedUserFilter === 'ALL'
-        ? `🦌 Rhegine &amp; Cy's 2026 Wishes (All Users)`
-        : `🦌 ${escapeHtml(selectedUserFilter)}'s 2026 Christmas Wishlist`;
-
-      const filtered = normalizedItems.filter(item => {
-        const matchesUser =
-          selectedUserFilter === 'ALL' ||
-          item.user.toLowerCase() === selectedUserFilter.toLowerCase();
-        const matchesSearch =
-          item.name.toLowerCase().includes(search) ||
-          item.user.toLowerCase().includes(search) ||
-          (item.cleanNotes && item.cleanNotes.toLowerCase().includes(search));
-        const matchesPriority = filter === 'ALL' || item.priority === filter;
-        return matchesUser && matchesSearch && matchesPriority;
-      });
-
-      if (filtered.length === 0) {
-        const ownerLabel = selectedUserFilter === 'ALL' ? 'Rhegine & Cy' : escapeHtml(selectedUserFilter);
-        grid.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem; color: #bfd4e6;">
-            ❄️ No wishes found for <strong>${ownerLabel}</strong> yet. Add a Christmas wish above!
-          </div>
-        `;
+      if (!filtered.length) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem; color: #bfd4e6;">❄️ No wishes found yet. Add a Christmas wish above!</div>';
         return;
       }
 
-      grid.innerHTML = filtered.map(item => `
-        <article class="wish-item-card">
-          <div>
-            <div class="wish-card-badges">
-              <span class="wish-user-badge">👤 ${escapeHtml(item.user)}</span>
-              <span class="wish-priority">${escapeHtml(item.priority || '⭐ Top Wish')}</span>
-            </div>
-            <h3 class="wish-title">${escapeHtml(item.name)}</h3>
-            ${item.cleanNotes ? `<p class="wish-notes" style="margin-top: 0.45rem;">${escapeHtml(item.cleanNotes)}</p>` : ''}
-          </div>
-          <div class="wish-actions">
-            <a href="${escapeAttribute(item.link)}" target="_blank" rel="noopener noreferrer" class="shop-link-btn">
-              🛒 Buy Online ↗
-            </a>
-            <button class="delete-wish-btn" onclick="deleteWish('${escapeAttribute(item.id)}')">
-              🗑 Remove
-            </button>
-          </div>
-        </article>
-      `).join('');
+      grid.innerHTML = filtered.map(i => {
+        const href = safeHref(i.link);
+        return '<article class="wish-item-card">' +
+          '<div>' +
+            '<div class="wish-card-badges">' +
+              '<span class="wish-user-badge">' + OWNER_ICON[i.owner] + ' ' + escapeHtml(i.owner) + '</span>' +
+              '<span class="wish-priority">' + escapeHtml(i.priority) + '</span>' +
+            '</div>' +
+            '<h3 class="wish-title">' + escapeHtml(i.name) + '</h3>' +
+            (i.notes ? '<p class="wish-notes">' + escapeHtml(i.notes) + '</p>' : '') +
+            (i.synced ? '' : '<p class="wish-sync">🟠 Waiting to sync to Google Sheet</p>') +
+          '</div>' +
+          '<div class="wish-actions">' +
+            (href ? '<a href="' + escapeHtml(href) + '" target="_blank" rel="noopener noreferrer" class="shop-link-btn">🛒 Buy Online ↗</a>' : '<span></span>') +
+            '<button type="button" class="delete-wish-btn" data-delete="' + escapeHtml(i.id) + '">🗑 Remove</button>' +
+          '</div>' +
+        '</article>';
+      }).join('');
     }
 
-    async function deleteWish(id) {
-      wishlistItems = wishlistItems.filter(item => String(item.id) !== String(id));
-      localStorage.setItem('xmas2026_items', JSON.stringify(wishlistItems));
-      renderUsersUI();
-      renderWishlist();
+    function renderAll() { renderTabs(); renderWishlist(); setSync(syncState); }
+
+    function deleteWish(id) {
+      const item = items.find(i => i.id === id);
+      if (!item) return;
+      if (!confirm('Remove "' + item.name + '" from ' + item.owner + '\'s wishlist?')) return;
+      items = items.filter(i => i.id !== id);
+      saveItems();
+      if (item.synced || !pendingDeletes.includes(id)) {
+        if (item.synced) { pendingDeletes.push(id); saveDeletes(); }
+      }
+      renderAll();
       showToast('🗑 Removed item from wishlist');
-
-      if (scriptUrl) {
-        try {
-          await fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ action: 'delete', id })
-          });
-        } catch (e) {
-          console.error(e);
-        }
-      }
+      if (item.synced) flush();
     }
 
-    async function fetchFromGoogleSheet() {
-      if (!scriptUrl) return;
-      try {
-        const res = await fetch(scriptUrl, { redirect: 'follow' });
-        const data = await res.json();
-        if (data && Array.isArray(data.items)) {
-          wishlistItems = data.items.reverse();
-          localStorage.setItem('xmas2026_items', JSON.stringify(wishlistItems));
-          renderUsersUI();
-          renderWishlist();
-          showToast('✅ Synced with Google Sheet!');
-        }
-      } catch (err) {
-        console.warn('Using cached wishlist items:', err);
-      }
-    }
-
+    /**************************************************************
+     * 5. SYNC MODAL
+     **************************************************************/
     function openSyncModal() {
       document.getElementById('script-url-input').value = scriptUrl;
+      const r = document.getElementById('test-result');
+      r.className = 'test-result';
+      r.textContent = lastError ? 'Last error: ' + lastError : '';
+      if (lastError) r.classList.add('bad');
       document.getElementById('sync-modal').classList.add('open');
     }
+    function closeSyncModal() { document.getElementById('sync-modal').classList.remove('open'); }
 
-    function closeSyncModal() {
-      document.getElementById('sync-modal').classList.remove('open');
+    async function testConnection() {
+      const r = document.getElementById('test-result');
+      const url = document.getElementById('script-url-input').value.trim();
+      r.className = 'test-result';
+      r.textContent = 'Testing…';
+      const previous = scriptUrl;
+      try {
+        scriptUrl = url;
+        const remote = await getRemote();
+        r.classList.add('good');
+        r.textContent = '✅ Connected! Found ' + remote.length + ' wish(es) in the sheet.';
+      } catch (err) {
+        r.classList.add('bad');
+        r.textContent = '❌ ' + (err.message || err) + ' — In Apps Script use Deploy > Manage deployments > Edit > New version, with "Who has access" set to Anyone.';
+      } finally {
+        scriptUrl = previous;
+      }
     }
 
     function saveScriptUrl() {
       scriptUrl = document.getElementById('script-url-input').value.trim() || DEFAULT_SCRIPT_URL;
-      localStorage.setItem('xmas2026_script_url', scriptUrl);
+      try { localStorage.setItem(LS_URL, scriptUrl); } catch (e) { /* ignore */ }
       closeSyncModal();
-      renderWishlist();
-      fetchFromGoogleSheet();
+      refreshFromSheet(true);
     }
 
     /**************************************************************
-     * 5. AUTOPLAY WEB AUDIO API CHRISTMAS MUSIC BOX & CHIMES
+     * 6. PRINT / PNG STUDIO  (US Letter 816 x 1056 px)
+     **************************************************************/
+    const PAGE_H = 1056, FRAME = 12, PAD_TOP = 28, HEADER_BIG = 190, HEADER_SMALL = 70, FOOTER_H = 50;
+    const ROW_H = 72, HEAD_H = 56;
+
+    function prettyLink(u) {
+      try {
+        const x = new URL(u);
+        let t = x.hostname.replace(/^www\./, '') + (x.pathname !== '/' ? x.pathname : '');
+        return t.length > 60 ? t.slice(0, 57) + '…' : t;
+      } catch (e) { return u; }
+    }
+
+    function priorityClass(p) { return p === PRIORITIES[0] ? 'top' : p === PRIORITIES[1] ? 'nice' : 'stock'; }
+
+    function getPrintOptions() {
+      return {
+        who: document.getElementById('print-who').value,
+        links: document.getElementById('print-links').checked,
+        notes: document.getElementById('print-notes').checked
+      };
+    }
+
+    function buildBlocks(opts) {
+      const owners = opts.who === 'BOTH' ? OWNERS : [opts.who];
+      const blocks = [];
+      owners.forEach(o => {
+        const list = items.filter(i => i.owner === o)
+          .sort((a, b) => PRIORITIES.indexOf(a.priority) - PRIORITIES.indexOf(b.priority) || byTimeDesc(b, a));
+        if (opts.who === 'BOTH' || list.length) {
+          blocks.push({ type: 'head', owner: o, count: list.length, h: HEAD_H });
+        }
+        list.forEach(i => blocks.push({ type: 'item', item: i, h: ROW_H }));
+      });
+      return blocks;
+    }
+
+    function paginate(blocks) {
+      const inner = PAGE_H - FRAME * 2;
+      const avail = n => inner - PAD_TOP - (n === 0 ? HEADER_BIG : HEADER_SMALL) - FOOTER_H - 8;
+      const pages = [[]];
+      let used = 0;
+      blocks.forEach((b, idx) => {
+        const n = pages.length - 1;
+        let need = b.h;
+        if (b.type === 'head' && blocks[idx + 1] && blocks[idx + 1].type === 'item') need += ROW_H; // keep heading with first item
+        if (used + need > avail(n) && pages[n].length) { pages.push([]); used = 0; }
+        pages[pages.length - 1].push(b);
+        used += b.h;
+      });
+      return pages;
+    }
+
+    function pageHeaderHtml(pageIdx, opts) {
+      const who = opts.who === 'BOTH' ? 'Rhegine &amp; Cy' : escapeHtml(opts.who);
+      const tree = '<svg class="ps-tree %SIDE%" width="86" height="120" viewBox="0 0 150 200"><rect x="65" y="165" width="20" height="35" fill="#5c3a21"/><polygon points="75,15 20,90 130,90" fill="#2d6a4f"/><polygon points="75,55 15,130 135,130" fill="#1b4332"/><polygon points="75,95 10,170 140,170" fill="#2d6a4f"/><polygon points="75,15 52,46 75,40 98,46" fill="#fff"/><polygon points="75,2 79,12 90,12 81,18 84,28 75,22 66,28 69,18 60,12 71,12" fill="#fcbf49"/><circle cx="55" cy="75" r="5" fill="#fcbf49"/><circle cx="95" cy="82" r="5" fill="#d62828"/><circle cx="45" cy="120" r="5" fill="#4cc9f0"/><circle cx="85" cy="115" r="5" fill="#fcbf49"/><circle cx="60" cy="152" r="5" fill="#d62828"/><circle cx="105" cy="148" r="5" fill="#fcbf49"/></svg>';
+      if (pageIdx === 0) {
+        return '<div class="ps-header big">' + tree.replace('%SIDE%', 'l') + tree.replace('%SIDE%', 'r') +
+          '<div class="ps-garland">❄ 🎄 ❄ 🎁 ❄ 🔔 ❄ 🎁 ❄ 🎄 ❄</div>' +
+          '<div class="ps-title">Christmas Wishlist 2026</div>' +
+          '<div class="ps-sub">' + who + '</div>' +
+          '<div class="ps-date">Dear Santa &amp; loved ones, here is what we are hoping for ✨</div>' +
+          '</div>';
+      }
+      return '<div class="ps-header small"><div class="ps-garland">❄ 🎄 ❄ 🎁 ❄</div><div class="ps-title">Christmas Wishlist 2026 · ' + who + '</div></div>';
+    }
+
+    function itemHtml(i, opts) {
+      const href = safeHref(i.link);
+      return '<div class="ps-item"><div class="ps-check"></div><div class="ps-main">' +
+        '<div class="ps-name">' + escapeHtml(i.name) + '</div>' +
+        (opts.notes && i.notes ? '<div class="ps-note">' + escapeHtml(i.notes) + '</div>' : '') +
+        (opts.links && href ? '<div class="ps-link">🔗 ' + escapeHtml(prettyLink(href)) + '</div>' : '') +
+        '</div><div class="ps-badge ' + priorityClass(i.priority) + '">' + escapeHtml(i.priority) + '</div></div>';
+    }
+
+    function buildPrintPagesHtml(opts) {
+      const blocks = buildBlocks(opts);
+      const total = blocks.filter(b => b.type === 'item').length;
+      const pages = paginate(blocks);
+      return pages.map((pageBlocks, idx) => {
+        let body = '';
+        if (!total) {
+          body = '<div class="ps-empty">🎁 No wishes added yet!<br>Add some gifts and come back to print.</div>';
+        } else {
+          body = pageBlocks.map(b => b.type === 'head'
+            ? '<div class="ps-head ' + (b.owner === 'Cy' ? 'cy' : '') + '">' + OWNER_ICON[b.owner] + ' ' + b.owner + '\'s Wishlist<span class="cnt">' + b.count + ' wish' + (b.count === 1 ? '' : 'es') + '</span></div>'
+            : itemHtml(b.item, opts)).join('');
+        }
+        return '<div class="ps-page"><div class="ps-inner">' +
+          '<span class="ps-corner tl">🎄</span><span class="ps-corner tr">🎄</span><span class="ps-corner bl">🎁</span><span class="ps-corner br">🎁</span>' +
+          pageHeaderHtml(idx, opts) +
+          '<div class="ps-body">' + body + '</div>' +
+          '<div class="ps-footer">🎅 Made with love for ' + (opts.who === 'BOTH' ? 'Rhegine &amp; Cy' : escapeHtml(opts.who)) + ' · Page ' + (idx + 1) + ' of ' + pages.length + ' 🎅</div>' +
+          '</div></div>';
+      });
+    }
+
+    function renderPrintPreview() {
+      const opts = getPrintOptions();
+      const pagesHtml = buildPrintPagesHtml(opts);
+      document.getElementById('print-root').innerHTML = pagesHtml.join('');
+
+      const area = document.getElementById('preview-area');
+      const maxW = Math.max(240, Math.min(816, area.clientWidth ? area.clientWidth - 40 : 700));
+      const scale = maxW / 816;
+      area.innerHTML = pagesHtml.map(h =>
+        '<div class="preview-page-wrap" style="width:' + Math.round(816 * scale) + 'px;height:' + Math.round(1056 * scale) + 'px;">' +
+        h.replace('class="ps-page"', 'class="ps-page" style="transform:scale(' + scale + ')"') + '</div>'
+      ).join('');
+    }
+
+    function openPrintModal() {
+      document.getElementById('print-who').value = selectedTab === 'ALL' ? 'BOTH' : selectedTab;
+      document.getElementById('print-modal').classList.add('open');
+      renderPrintPreview();
+    }
+    function closePrintModal() { document.getElementById('print-modal').classList.remove('open'); }
+
+    function printWishlist() {
+      renderPrintPreview();
+      setTimeout(() => window.print(), 150);
+    }
+
+    async function exportPNG() {
+      if (typeof html2canvas === 'undefined') {
+        showToast('⚠️ PNG export needs an internet connection to load its helper. Use Print > Save as PDF instead.');
+        return;
+      }
+      renderPrintPreview();
+      const btn = document.getElementById('print-png-btn');
+      const label = btn.textContent;
+      btn.disabled = true;
+      try {
+        if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        const pages = Array.from(document.querySelectorAll('#print-root .ps-page'));
+        const who = getPrintOptions().who === 'BOTH' ? 'Rhegine-and-Cy' : getPrintOptions().who;
+        for (let n = 0; n < pages.length; n++) {
+          btn.textContent = '⏳ Page ' + (n + 1) + '/' + pages.length + '…';
+          const canvas = await html2canvas(pages[n], { scale: 2, backgroundColor: '#d62828', useCORS: true, width: 816, height: 1056, windowWidth: 816 });
+          const a = document.createElement('a');
+          a.download = 'christmas-wishlist-2026-' + who + (pages.length > 1 ? '-page' + (n + 1) : '') + '.png';
+          a.href = canvas.toDataURL('image/png');
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          await new Promise(r => setTimeout(r, 450));
+        }
+        showToast('🖼️ Downloaded ' + pages.length + ' PNG file' + (pages.length > 1 ? 's' : '') + ' (1632 × 2112)');
+      } catch (err) {
+        showToast('⚠️ PNG export failed: ' + (err.message || err));
+      } finally {
+        btn.disabled = false;
+        btn.textContent = label;
+      }
+    }
+
+    /**************************************************************
+     * 7. MUSIC
      **************************************************************/
     let audioCtx = null;
-    let isPlayingMusic = true; // Enabled automatically on load
+    let isPlayingMusic = true;
     let melodyLoopRunning = false;
     let melodyTimeout = null;
 
-    const NOTES = {
-      C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23, G4: 392.00, A4: 440.00, B4: 493.88,
-      C5: 523.25, D5: 587.33, E5: 659.25, F5: 698.46, G5: 783.99
-    };
-
+    const NOTES = { C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23, G4: 392.00, A4: 440.00, B4: 493.88, C5: 523.25, D5: 587.33, E5: 659.25, F5: 698.46, G5: 783.99 };
     const CHRISTMAS_MELODY = [
-      ['E5', 0.28], ['E5', 0.28], ['E5', 0.55],
-      ['E5', 0.28], ['E5', 0.28], ['E5', 0.55],
+      ['E5', 0.28], ['E5', 0.28], ['E5', 0.55], ['E5', 0.28], ['E5', 0.28], ['E5', 0.55],
       ['E5', 0.28], ['G5', 0.28], ['C5', 0.42], ['D5', 0.18], ['E5', 0.9],
-      ['F5', 0.28], ['F5', 0.28], ['F5', 0.42], ['F5', 0.18],
-      ['F5', 0.28], ['E5', 0.28], ['E5', 0.28], ['E5', 0.28],
+      ['F5', 0.28], ['F5', 0.28], ['F5', 0.42], ['F5', 0.18], ['F5', 0.28], ['E5', 0.28], ['E5', 0.28], ['E5', 0.28],
       ['E5', 0.28], ['D5', 0.28], ['D5', 0.28], ['E5', 0.28], ['D5', 0.55], ['G5', 0.55],
-      ['E5', 0.28], ['E5', 0.28], ['E5', 0.55],
-      ['E5', 0.28], ['E5', 0.28], ['E5', 0.55],
+      ['E5', 0.28], ['E5', 0.28], ['E5', 0.55], ['E5', 0.28], ['E5', 0.28], ['E5', 0.55],
       ['E5', 0.28], ['G5', 0.28], ['C5', 0.42], ['D5', 0.18], ['E5', 0.9],
-      ['F5', 0.28], ['F5', 0.28], ['F5', 0.42], ['F5', 0.18],
-      ['F5', 0.28], ['E5', 0.28], ['E5', 0.28], ['E5', 0.28],
+      ['F5', 0.28], ['F5', 0.28], ['F5', 0.42], ['F5', 0.18], ['F5', 0.28], ['E5', 0.28], ['E5', 0.28], ['E5', 0.28],
       ['G5', 0.28], ['G5', 0.28], ['F5', 0.28], ['D5', 0.28], ['C5', 0.95]
     ];
+
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return null;
+        audioCtx = new AC();
+      }
+      return audioCtx;
+    }
 
     function playCelestaNote(freq, duration) {
       if (!audioCtx || audioCtx.state !== 'running') return;
@@ -1257,159 +1007,93 @@
       const osc = audioCtx.createOscillator();
       const harmonic = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
-
-      osc.type = 'sine';
-      harmonic.type = 'triangle';
+      osc.type = 'sine'; harmonic.type = 'triangle';
       osc.frequency.setValueAtTime(freq, now);
       harmonic.frequency.setValueAtTime(freq * 2, now);
-
       gain.gain.setValueAtTime(0.001, now);
       gain.gain.linearRampToValueAtTime(0.11, now + 0.02);
       gain.gain.exponentialRampToValueAtTime(0.0008, now + duration + 0.35);
-
-      osc.connect(gain);
-      harmonic.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(now);
-      harmonic.start(now);
-      osc.stop(now + duration + 0.4);
-      harmonic.stop(now + duration + 0.4);
+      osc.connect(gain); harmonic.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(now); harmonic.start(now);
+      osc.stop(now + duration + 0.4); harmonic.stop(now + duration + 0.4);
     }
 
-    function playMelodyStep(index = 0) {
-      if (!isPlayingMusic) {
-        melodyLoopRunning = false;
-        return;
-      }
+    function playMelodyStep(index) {
+      if (!isPlayingMusic) { melodyLoopRunning = false; return; }
       melodyLoopRunning = true;
-      const [noteName, duration] = CHRISTMAS_MELODY[index];
-      playCelestaNote(NOTES[noteName], duration);
-      melodyTimeout = setTimeout(() => {
-        playMelodyStep((index + 1) % CHRISTMAS_MELODY.length);
-      }, duration * 1000);
+      const step = CHRISTMAS_MELODY[index || 0];
+      playCelestaNote(NOTES[step[0]], step[1]);
+      melodyTimeout = setTimeout(() => playMelodyStep(((index || 0) + 1) % CHRISTMAS_MELODY.length), step[1] * 1000);
     }
 
     function updateAudioButtonUI() {
       const btn = document.getElementById('audio-btn');
-      if (isPlayingMusic) {
-        btn.classList.add('playing');
-        btn.textContent = '🎶 Pause Holiday Music';
-      } else {
-        btn.classList.remove('playing');
-        btn.textContent = '🔔 Play Holiday Music';
-      }
+      btn.classList.toggle('playing', isPlayingMusic);
+      btn.textContent = isPlayingMusic ? '🎶 Pause Holiday Music' : '🔔 Play Holiday Music';
     }
 
     function startAutoplayMusic() {
       try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        if (ctx.state === 'suspended') ctx.resume().catch(() => {});
         isPlayingMusic = true;
         updateAudioButtonUI();
-        if (!melodyLoopRunning) {
-          playMelodyStep(0);
-        }
-      } catch (e) {
-        console.warn('Autoplay waiting for first interaction:', e);
-      }
+        if (!melodyLoopRunning) playMelodyStep(0);
+      } catch (e) { /* waits for first interaction */ }
     }
 
-    // Unlock audio automatically on the first pointer, touch, key, or scroll interaction if browser paused cold autoplay
     function setupAutoplayUnlocker() {
-      const unlockEvents = ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'];
-      const unlockHandler = (e) => {
+      const events = ['pointerdown', 'touchstart', 'click', 'keydown'];
+      const handler = (e) => {
         if (e.target && e.target.id === 'audio-btn') return;
         if (isPlayingMusic) {
-          if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-          }
-          if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-          }
-          if (!melodyLoopRunning) {
-            playMelodyStep(0);
-          }
+          const ctx = getAudioCtx();
+          if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
+          if (!melodyLoopRunning) playMelodyStep(0);
         }
-        if (audioCtx && audioCtx.state === 'running') {
-          unlockEvents.forEach(evt => window.removeEventListener(evt, unlockHandler));
-        }
+        if (audioCtx && audioCtx.state === 'running') events.forEach(ev => window.removeEventListener(ev, handler));
       };
-      unlockEvents.forEach(evt => window.addEventListener(evt, unlockHandler, { passive: true }));
+      events.forEach(ev => window.addEventListener(ev, handler, { passive: true }));
     }
 
     function toggleChristmasMusic() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
+      const ctx = getAudioCtx();
+      if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
       isPlayingMusic = !isPlayingMusic;
       updateAudioButtonUI();
-      if (isPlayingMusic) {
-        clearTimeout(melodyTimeout);
-        playMelodyStep(0);
-      } else {
-        melodyLoopRunning = false;
-        clearTimeout(melodyTimeout);
-      }
+      clearTimeout(melodyTimeout);
+      if (isPlayingMusic) playMelodyStep(0); else melodyLoopRunning = false;
     }
 
     function playJingleChime() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-      ['C5', 'E5', 'G5'].forEach((n, idx) => {
-        setTimeout(() => playCelestaNote(NOTES[n], 0.25), idx * 90);
-      });
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+      ['C5', 'E5', 'G5'].forEach((n, idx) => setTimeout(() => playCelestaNote(NOTES[n], 0.25), idx * 90));
     }
 
     /**************************************************************
-     * 6. ANIMATED SNOWFALL & 2026 CHRISTMAS COUNTDOWN
+     * 8. SNOW + COUNTDOWN + UTILITIES
      **************************************************************/
     function initSnowfall() {
       const canvas = document.getElementById('snow-canvas');
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext && canvas.getContext('2d');
+      if (!ctx) return;
       let width = (canvas.width = window.innerWidth);
       let height = (canvas.height = window.innerHeight);
-
-      window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      });
-
+      window.addEventListener('resize', () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; });
       const flakes = Array.from({ length: 110 }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 3.2 + 1,
-        speedY: Math.random() * 1.1 + 0.45,
-        speedX: Math.random() * 0.6 - 0.3,
-        opacity: Math.random() * 0.65 + 0.25
+        x: Math.random() * width, y: Math.random() * height, r: Math.random() * 3.2 + 1,
+        speedY: Math.random() * 1.1 + 0.45, speedX: Math.random() * 0.6 - 0.3, opacity: Math.random() * 0.65 + 0.25
       }));
-
       function drawSnow() {
         ctx.clearRect(0, 0, width, height);
         flakes.forEach(f => {
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${f.opacity})`;
-          ctx.fill();
-
-          f.y += f.speedY;
-          f.x += f.speedX + Math.sin(f.y * 0.012) * 0.3;
-
-          if (f.y > height) {
-            f.y = -5;
-            f.x = Math.random() * width;
-          }
+          ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,' + f.opacity + ')'; ctx.fill();
+          f.y += f.speedY; f.x += f.speedX + Math.sin(f.y * 0.012) * 0.3;
+          if (f.y > height) { f.y = -5; f.x = Math.random() * width; }
           if (f.x > width) f.x = 0;
           if (f.x < 0) f.x = width;
         });
@@ -1419,59 +1103,80 @@
     }
 
     function updateCountdown2026() {
-      const target = new Date('2026-12-25T00:00:00');
-      const now = new Date();
-      const diff = target - now;
+      const diff = new Date('2026-12-25T00:00:00') - new Date();
       const badge = document.getElementById('countdown-timer');
-
-      if (diff <= 0) {
-        badge.textContent = '🎄 Merry Christmas 2026, Rhegine & Cy! 🎅';
-        return;
-      }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      badge.textContent = `🎅 ${days}d ${hours}h ${mins}m until Christmas 2026`;
+      if (diff <= 0) { badge.textContent = '🎄 Merry Christmas 2026, Rhegine & Cy! 🎅'; return; }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff / 3600000) % 24);
+      const mins = Math.floor((diff / 60000) % 60);
+      badge.textContent = '🎅 ' + days + 'd ' + hours + 'h ' + mins + 'm until Christmas 2026';
     }
 
-    /**************************************************************
-     * 7. UTILITIES & INITIALIZATION
-     **************************************************************/
+    let toastTimer = null;
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 3200);
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove('show'), 4200);
     }
 
     function escapeHtml(str) {
-      return String(str).replace(/[&<>"']/g, m => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      }[m]));
+      return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
     }
 
-    function escapeAttribute(str) {
-      return String(str).replace(/"/g, '&quot;');
-    }
-
+    /**************************************************************
+     * 9. INIT / EVENTS
+     **************************************************************/
     window.addEventListener('DOMContentLoaded', () => {
-      if (!localStorage.getItem('xmas2026_script_url')) {
-        localStorage.setItem('xmas2026_script_url', DEFAULT_SCRIPT_URL);
-      }
-      scriptUrl = localStorage.getItem('xmas2026_script_url') || DEFAULT_SCRIPT_URL;
+      loadInitialItems();
 
-      renderUsersUI();
+      document.getElementById('wishlist-form').addEventListener('submit', handleBatchSubmit);
+      document.getElementById('add-row-btn').addEventListener('click', () => addItemRow());
+      document.getElementById('item-rows').addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-remove-row');
+        if (!btn) return;
+        const row = btn.closest('.item-entry-row');
+        const container = document.getElementById('item-rows');
+        if (container.children.length > 1) row.remove();
+        else row.querySelectorAll('input').forEach(inp => { inp.value = ''; });
+      });
+      document.getElementById('tabs').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-tab]');
+        if (!b) return;
+        selectedTab = b.dataset.tab;
+        renderAll();
+      });
+      document.getElementById('wishlist-grid').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-delete]');
+        if (b) deleteWish(b.dataset.delete);
+      });
+      document.getElementById('search-input').addEventListener('input', renderWishlist);
+      document.getElementById('priority-filter').addEventListener('change', renderWishlist);
+      document.getElementById('refresh-btn').addEventListener('click', () => refreshFromSheet(true));
+
+      document.getElementById('audio-btn').addEventListener('click', toggleChristmasMusic);
+      document.getElementById('sync-pill').addEventListener('click', openSyncModal);
+      document.getElementById('sync-cancel-btn').addEventListener('click', closeSyncModal);
+      document.getElementById('sync-save-btn').addEventListener('click', saveScriptUrl);
+      document.getElementById('test-conn-btn').addEventListener('click', testConnection);
+
+      document.getElementById('open-print-btn').addEventListener('click', openPrintModal);
+      document.getElementById('print-close-btn').addEventListener('click', closePrintModal);
+      document.getElementById('print-go-btn').addEventListener('click', printWishlist);
+      document.getElementById('print-png-btn').addEventListener('click', exportPNG);
+      ['print-who', 'print-links', 'print-notes'].forEach(id => document.getElementById(id).addEventListener('change', renderPrintPreview));
+      window.addEventListener('resize', () => { if (document.getElementById('print-modal').classList.contains('open')) renderPrintPreview(); });
+      document.querySelectorAll('.modal-backdrop').forEach(m => m.addEventListener('mousedown', (e) => { if (e.target === m) m.classList.remove('open'); }));
+
       addItemRow();
-      renderWishlist();
+      renderAll();
       initSnowfall();
       updateCountdown2026();
       setInterval(updateCountdown2026, 60000);
-
-      // Start Christmas Music automatically on load + register gesture fallback
       startAutoplayMusic();
       setupAutoplayUnlocker();
-
-      fetchFromGoogleSheet();
+      refreshFromSheet(false);
     });
   </script>
 </body>
